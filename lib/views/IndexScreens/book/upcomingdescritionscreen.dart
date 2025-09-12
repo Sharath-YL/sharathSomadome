@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:somadome_p/res/widgets/locationviewpage.dart';
 import 'package:somadome_p/res/widgets/map_widget.dart';
@@ -19,7 +20,7 @@ class _UpcomingdescritionscreenState extends State<Upcomingdescritionscreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(gradient: AppColors.scafoldcolor),
+      decoration: BoxDecoration(gradient: AppColors.backgroundgradient),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -28,7 +29,11 @@ class _UpcomingdescritionscreenState extends State<Upcomingdescritionscreen> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back_ios_new_sharp, color: Colors.white),
+            icon: Icon(
+              Icons.arrow_back_ios_new_sharp,
+              color: Colors.white,
+              size: 18,
+            ),
           ),
           title: Text(
             "Location Name",
@@ -67,10 +72,10 @@ class _UpcomingdescritionscreenState extends State<Upcomingdescritionscreen> {
             /// 🔹 Rating and review
             Row(
               children: [
-                Icon(
-                  Icons.star,
+                SvgPicture.asset(
+                  "assets/images/star.svg",
                   color: AppColors.forgetpasswordcolor,
-                  size: 18,
+                  height: 15,
                 ),
                 SizedBox(width: 4),
                 RichText(
@@ -94,7 +99,10 @@ class _UpcomingdescritionscreenState extends State<Upcomingdescritionscreen> {
                   ),
                 ),
                 Spacer(),
-                Icon(Icons.favorite_border, color: Colors.white),
+                SvgPicture.asset(
+                  "assets/images/heart (1).svg",
+                  color: AppColors.silverGray,
+                ),
               ],
             ),
 
@@ -159,7 +167,7 @@ class _UpcomingdescritionscreenState extends State<Upcomingdescritionscreen> {
                     Row(
                       children: [
                         Text(
-                          '₹ 120',
+                          '\$45',
                           style: GoogleFonts.urbanist(
                             color: AppColors.forgetpasswordcolor,
                             fontSize: 20,
@@ -167,10 +175,10 @@ class _UpcomingdescritionscreenState extends State<Upcomingdescritionscreen> {
                           ),
                         ),
                         Text(
-                          "/45mins",
+                          "/session",
                           style: GoogleFonts.urbanist(
                             color: AppColors.white,
-                            fontSize: 15,
+                            fontSize: 20,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -193,8 +201,8 @@ class _UpcomingdescritionscreenState extends State<Upcomingdescritionscreen> {
                   },
                   child: Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 12.w,
-                      vertical: 15.h,
+                      horizontal: 15.w,
+                      vertical: 13.h,
                     ),
                     decoration: BoxDecoration(
                       color: AppColors.buttonpink,

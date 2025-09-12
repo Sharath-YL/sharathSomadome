@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
+import 'package:somadome_p/res/widgets/customresumebutton.dart';
 import 'package:somadome_p/views/auth_screeen/registartionscreen.dart';
 import 'package:somadome_p/views/auth_screeen/signin_page.dart';
 
@@ -20,12 +22,21 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
       subtitle: '1000+ Locations to find your',
     ),
     _OnboardPage(
-      title: 'Track your progress',
-      subtitle: 'Daily streaks and smart reminders.',
+      title: 'Discover a world of light ',
+      subtitle: '1000+ Locations to find your',
     ),
     _OnboardPage(
-      title: 'Find your community',
-      subtitle: 'Join groups who share your vibe.',
+      title: 'Discover a world of light ',
+      subtitle: '1000+ Locations to find your',
+    ),
+
+    _OnboardPage(
+      title: 'Discover a world of light ',
+      subtitle: '1000+ Locations to find your',
+    ),
+    _OnboardPage(
+      title: 'Discover a world of light ',
+      subtitle: '1000+ Locations to find your',
     ),
   ];
 
@@ -44,16 +55,15 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
             child: DecoratedBox(
               decoration: BoxDecoration(
                 image: const DecorationImage(
-                  image: AssetImage('assets/images/clodes1.webp'),
+                  image: AssetImage('assets/images/onboarding.png'),
                   fit: BoxFit.cover,
                 ),
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    const Color(0xFF6C2DB9).withOpacity(.90),
-                    const Color(0xFF6C2DB9).withOpacity(.65),
-                    const Color(0xFF341F97).withOpacity(.90),
+                    const Color.fromRGBO(157, 71, 255, 0.20),
+                    const Color.fromRGBO(107, 110, 255, 0.20),
                   ],
                 ),
               ),
@@ -88,9 +98,9 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                             ),
                           );
                         },
-                        child: const Text(
+                        child: Text(
                           'Skip',
-                          style: TextStyle(
+                          style: GoogleFonts.urbanist(
                             color: AppColors.white,
                             fontWeight: FontWeight.bold,
                           ),
@@ -113,35 +123,70 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
 
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10),
-                    child: SizedBox(
-                      width: double.infinity,
-                      height: 54,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Registartionscreen(),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (_index == _pages.length - 1)
+                          Center(
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => SignupScreen(),
+                                  ),
+                                );
+                              },
+                              child: Text.rich(
+                                TextSpan(
+                                  text: "Don't have an account? ",
+                                  style: GoogleFonts.urbanist(
+                                    color: Colors.white.withOpacity(1),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16, 
+                                    letterSpacing: 0.4
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                      text: "Sign up",
+                                      style: GoogleFonts.urbanist(
+                                        color: AppColors.forgetpasswordcolor,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 0.4, 
+                                        fontSize: 16
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFFF2EC4),
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
                           ),
-                          elevation: 0,
-                        ),
-                        child: const Text(
-                          'Sign Up',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            color: AppColors.white,
+                        SizedBox(
+                          width: double.infinity,
+                          height: 54,
+                          child: ResumeButton(
+                            buttonText:
+                                _index == _pages.length - 1
+                                    ? "Sign In"
+                                    : "Next",
+                            onPressed: () {
+                              if (_index < _pages.length - 1) {
+                                _controller.nextPage(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.easeInOut,
+                                );
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Registartionscreen(),
+                                  ),
+                                );
+                              }
+                            },
                           ),
                         ),
-                      ),
+                      ],
                     ),
                   ),
                 ],
@@ -171,7 +216,7 @@ class _OnboardPage extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
+              style: GoogleFonts.urbanist(
                 color: AppColors.white,
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
@@ -181,7 +226,7 @@ class _OnboardPage extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               subtitle,
-              style: TextStyle(
+              style: GoogleFonts.urbanist(
                 color: AppColors.white.withOpacity(0.7),
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
@@ -209,9 +254,9 @@ class _SegmentedIndicator extends StatelessWidget {
           duration: const Duration(milliseconds: 250),
           margin: EdgeInsets.only(left: i == 0 ? 0 : 6),
           height: 6,
-          width: active ? 22 : 10,
+          width: active ? 25 : 25,
           decoration: BoxDecoration(
-            color: active ? AppColors.white : AppColors.white.withOpacity(0.35),
+            color: active ? AppColors.white : AppColors.linesegmentcolor,
             borderRadius: BorderRadius.circular(6),
           ),
         );

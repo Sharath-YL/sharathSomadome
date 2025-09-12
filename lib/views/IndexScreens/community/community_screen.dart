@@ -30,120 +30,123 @@ class CommunityScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.backgroundcolor,
+    return Container(
+      decoration: BoxDecoration(gradient: AppColors.backgroundgradient),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
 
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AppBar(
-            centerTitle: true,
-            backgroundColor: AppColors.backgroundcolor,
-            automaticallyImplyLeading: false,
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(Icons.arrow_back, color: AppColors.white, size: 18),
-            ),
-            title: Text(
-              "Community",
-              style: GoogleFonts.poppins(
-                color: AppColors.white,
-                fontWeight: FontWeight.w600,
-                fontSize: 18,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AppBar(
+              centerTitle: true,
+              backgroundColor: Colors.transparent,
+              automaticallyImplyLeading: false,
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.arrow_back, color: AppColors.white, size: 18),
               ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(12.w),
-            child: Text(
-              "Top Rated Sessions This Week",
-              style: GoogleFonts.poppins(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-              ),
-            ),
-          ),
-
-          // Booking list scrolls independently
-          Expanded(
-            flex: 1,
-            child: ListView.builder(
-              itemCount: bookings.length > 2 ? 6 : bookings.length,
-              itemBuilder: (context, index) {
-                final booking = bookings[index];
-                return Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 6.h,
-                    horizontal: 12.w,
-                  ),
-                  child: BookingCard(
-                    title: booking["title"]!,
-                    subtitle: booking["subtitle"]!,
-                    daysLeft: booking["daysLeft"]!,
-                    imageUrl: booking["imageUrl"]!,
-                  ),
-                );
-              },
-            ),
-          ),
-
-          // Row between Booking and Activity
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Activities",
-                  style: GoogleFonts.poppins(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
+              title: Text(
+                "Community",
+                style: GoogleFonts.poppins(
+                  color: AppColors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18,
                 ),
-                TextButton(
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (_) => SessionListScreen(bookings: bookings),
-                    //   ),
-                    // );
-                  },
-                  child: Text(
-                    "View More",
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(12.w),
+              child: Text(
+                "Top Rated Sessions This Week",
+                style: GoogleFonts.poppins(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+
+            // Booking list scrolls independently
+            Expanded(
+              flex: 1,
+              child: ListView.builder(
+                itemCount: bookings.length > 2 ? 6 : bookings.length,
+                itemBuilder: (context, index) {
+                  final booking = bookings[index];
+                  return Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 6.h,
+                      horizontal: 12.w,
+                    ),
+                    child: BookingCard(
+                      title: booking["title"]!,
+                      subtitle: booking["subtitle"]!,
+                      daysLeft: booking["daysLeft"]!,
+                      imageUrl: booking["imageUrl"]!,
+                    ),
+                  );
+                },
+              ),
+            ),
+
+            // Row between Booking and Activity
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Activities",
                     style: GoogleFonts.poppins(
-                      fontSize: 16.sp,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-
-          // ----------------- ACTIVITIES SECTION -----------------
-          Expanded(
-            flex: 1,
-            child: ListView.builder(
-              itemCount: activities.length,
-              itemBuilder: (context, index) {
-                final activity = activities[index];
-                return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.w),
-                  child: ActivityCard(
-                    imageUrl: activity["imageUrl"]!,
-                    text: activity["text"]!,
+                  TextButton(
+                    onPressed: () {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (_) => SessionListScreen(bookings: bookings),
+                      //   ),
+                      // );
+                    },
+                    child: Text(
+                      "View More",
+                      style: GoogleFonts.poppins(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                );
-              },
+                ],
+              ),
             ),
-          ),
-        ],
+
+            // ----------------- ACTIVITIES SECTION -----------------
+            Expanded(
+              flex: 1,
+              child: ListView.builder(
+                itemCount: activities.length,
+                itemBuilder: (context, index) {
+                  final activity = activities[index];
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12.w),
+                    child: ActivityCard(
+                      imageUrl: activity["imageUrl"]!,
+                      text: activity["text"]!,
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

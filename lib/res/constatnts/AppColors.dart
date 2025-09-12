@@ -16,6 +16,11 @@ class AppColors {
     ],
   );
 
+  static const LinearGradient imagecolor= LinearGradient(colors: [ 
+    Color.fromRGBO(157, 71, 255,1), Color.fromRGBO(107, 110, 255, 1)
+
+  ]);
+
   static const LinearGradient scafoldcolor = LinearGradient(
     colors: [Color.fromRGBO(157, 71, 255, 1), Color.fromRGBO(157, 71, 255, 1)],
   );
@@ -40,5 +45,6 @@ class AppColors {
   static const Color sessionbuttoncolor = Color(0xff13D5DF);
   static const Color forgetpasswordcolor = Color(0xff13D5DF);
 
-  static const Color titlecolor = Color.fromRGBO(246, 15, 255, 1);
+  static const Color titlecolor = Color.fromRGBO(246, 15, 255, 1); 
+  static const Color linesegmentcolor = Color(0xffF60FFF);
 }

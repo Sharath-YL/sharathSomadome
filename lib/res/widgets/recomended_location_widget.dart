@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:somadome_p/res/constatnts/AppColors.dart';
+import 'package:somadome_p/utis/routes/routename.dart';
+import 'package:somadome_p/views/IndexScreens/home/view_more_screens.dart';
 import 'location_card.dart';
 
-class RecommendedLocationsWidget extends StatelessWidget {
-  const RecommendedLocationsWidget({super.key});
+class RecommendedLocationsWidget extends StatelessWidget { 
+  final String? title; 
+  final String? subtile; 
+  final VoidCallback? ontap;
+  const RecommendedLocationsWidget({
+    this.title, 
+    this.subtile, 
+    this.ontap,
+    
+    super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +28,7 @@ class RecommendedLocationsWidget extends StatelessWidget {
         'price': '\$90/45min',
       },
       {
-        'imageAsset': 'assets/images/tree.png',
+        'imageAsset': 'assets/images/tree.jpg',
         'discount': '25% off',
         'name': 'Palm Beach',
         'zip': '5343355',
@@ -43,8 +54,8 @@ class RecommendedLocationsWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Recommended",
+             Text(
+              title??"",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18,
@@ -52,18 +63,14 @@ class RecommendedLocationsWidget extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (_) => ViewMoreScreen(locations: locations),
-                //   ),
-                // );
-              },
-              child: const Text(
-                "View more",
+              onTap: ontap,
+              
+
+              
+              child:  Text(
+                subtile??"",
                 style: TextStyle(
-                  color: Colors.blueAccent,
+                  color: AppColors.forgetpasswordcolor,
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 ),

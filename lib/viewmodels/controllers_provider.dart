@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ControllersProvider  with ChangeNotifier{ 
+class ControllersProvider with ChangeNotifier {
+  final TextEditingController searchcontoller = TextEditingController(); 
 
-  final TextEditingController searchcontoller=TextEditingController();
 
+  
 }

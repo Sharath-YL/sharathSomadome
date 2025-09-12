@@ -71,10 +71,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(
                     'Community Graph',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
+                    style: GoogleFonts.urbanist(
+                      color: AppColors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 0.2,
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -82,14 +83,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 24),
                   Text(
                     'Find a place to power Up!',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
+                    style: GoogleFonts.urbanist(
+                      color: AppColors.white,
                       fontSize: 18,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 0.2,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 10),
                   MapWidget(
+                    imagepath: "assets/images/mapimage.png",
                     ontap: () {
                       Navigator.pushNamed(context, RoutesName.googlemapscreen);
                     },
@@ -101,7 +104,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 8),
 
                   //
-                  const RecommendedLocationsWidget(),
+                  RecommendedLocationsWidget(
+                    title: "Recommended",
+                    subtile: "View more",
+                    ontap: () {
+                      Navigator.pushNamed(context, RoutesName.recommandation);
+                    },
+                  ),
                 ],
               ),
             ),
@@ -125,7 +134,7 @@ class HomeBooking extends StatelessWidget {
             children: [
               Text(
                 "Bookings",
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.urbanist(
                   color: Colors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -140,7 +149,7 @@ class HomeBooking extends StatelessWidget {
                 },
                 child: Text(
                   "See All",
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.urbanist(
                     color: Colors.blueAccent,
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
@@ -153,7 +162,7 @@ class HomeBooking extends StatelessWidget {
 
           Container(
             width: double.infinity,
-            height: 145,
+            height: 130,
             decoration: BoxDecoration(
               color: AppColors.coralcolor,
               borderRadius: BorderRadius.circular(20),
@@ -161,62 +170,65 @@ class HomeBooking extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Upcoming",
-                        style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
+                  /// Left side: Texts
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Upcoming",
+                          style: GoogleFonts.urbanist(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        "Location Name",
-                        style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
+                        const SizedBox(height: 4),
+                        Text(
+                          "Location Name",
+                          style: GoogleFonts.urbanist(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 4),
-                      Container(
-                        height: 40,
-                        width: 120,
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.circular(10.r),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "2 days away ",
-                            style: GoogleFonts.poppins(
-                              color: AppColors.errorcolor,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                        const SizedBox(height: 8),
+                        Container(
+                          height: 34,
+                          width: 120,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "2 days away",
+                              style: GoogleFonts.urbanist(
+                                color: AppColors.errorcolor,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
 
-                  SizedBox(width: 10),
-                  // ClipRRect(
-                  //   // borderRadius: BorderRadius.circular(10),
-                  //   child: Image.asset(
-                  //     'assets/images/palace.png',
-                  //     height: 150,
-                  //     width: 80,
-                  //     fit: BoxFit.cover,
-                  //   ),
-                  // ),
+                  Expanded(
+                    flex: 1,
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: Image.asset(
+                        'assets/images/unsplash_tXgtjrZc_4w.png',
+                        fit: BoxFit.fill,
+                        height: 170,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -227,14 +239,19 @@ class HomeBooking extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              // color: AppColors.buttonpink.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromRGBO(255, 96, 121, 1).withOpacity(0.07),
+                  Color.fromRGBO(255, 96, 121, 0.96).withOpacity(0.07),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(25),
             ),
             child: Column(
               children: [
                 Text(
                   "Streak!",
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.urbanist(
                     color: Colors.white,
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -267,7 +284,10 @@ class HomeBooking extends StatelessWidget {
                 SizedBox(height: 10),
                 Text(
                   "2 More to go!",
-                  style: GoogleFonts.poppins(color: Colors.white, fontSize: 18),
+                  style: GoogleFonts.urbanist(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
                 ),
               ],
             ),

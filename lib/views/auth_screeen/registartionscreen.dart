@@ -6,6 +6,7 @@ import 'package:somadome_p/res/widgets/customsocialbuttons.dart';
 import 'package:somadome_p/res/widgets/customtextfield.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
 import 'package:somadome_p/utis/routes/routename.dart';
+import 'package:somadome_p/views/IndexScreens/index/root_bottom_nav.dart';
 
 class Registartionscreen extends StatefulWidget {
   const Registartionscreen({super.key});
@@ -91,7 +92,12 @@ class _RegistartionscreenState extends State<Registartionscreen> {
                     ResumeButton(
                       buttonText: "Sign In",
                       onPressed: () {
-                        Navigator.pushNamed(context, RoutesName.signupscreen);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RootBottomNav(),
+                          ),
+                        );
                       },
                     ),
                     SizedBox(height: 10.h),

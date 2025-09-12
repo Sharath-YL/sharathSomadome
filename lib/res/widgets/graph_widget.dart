@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
 
@@ -15,21 +16,31 @@ class GraphWidget extends StatelessWidget {
     final communityLine = [4, 3, 4, 5, 3, 4, 2];
 
     return Container(
-      decoration: BoxDecoration(
-      //  gradient: AppColors.backgroundgradient,
-        borderRadius: BorderRadius.circular(16),
-      ),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
       padding: const EdgeInsets.all(12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /// --- Legend Column (Top Left) ---
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildLegend(Colors.pinkAccent, "You"),
+              _buildLegend(
+                SvgPicture.asset(
+                  "assets/images/Item.svg",
+                  width: 14,
+                  height: 12,
+                ),
+                "You",
+              ),
               const SizedBox(height: 6),
-              _buildLegend(Colors.blueAccent, "Community"),
+              _buildLegend(
+                SvgPicture.asset(
+                  "assets/images/Item (1).svg",
+                  width: 14,
+                  height: 12,
+                ),
+                "Community",
+              ),
             ],
           ),
           const SizedBox(height: 8),
@@ -38,19 +49,35 @@ class GraphWidget extends StatelessWidget {
           SizedBox(
             height: 180,
             child: LineChart(
+          
+          
               LineChartData(
                 gridData: const FlGridData(show: false),
                 titlesData: FlTitlesData(
-                  leftTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                  rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                  topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  leftTitles: const AxisTitles(
+                    sideTitles: SideTitles(showTitles: false),
+                  ),
+                  rightTitles: const AxisTitles(
+                    sideTitles: SideTitles(showTitles: false),
+                  ),
+                  topTitles: const AxisTitles(
+                    sideTitles: SideTitles(showTitles: false),
+                  ),
                   bottomTitles: AxisTitles(
                     sideTitles: SideTitles(
                       showTitles: true,
                       reservedSize: 28,
-                      interval: 1, // 🔥 ensures no repetition
+                      interval: 1, 
                       getTitlesWidget: (value, meta) {
-                        const days = ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+                        const days = [
+                          'Sat',
+                          'Sun',
+                          'Mon',
+                          'Tue',
+                          'Wed',
+                          'Thu',
+                          'Fri',
+                        ];
                         if (value.toInt() < 0 || value.toInt() >= days.length) {
                           return const SizedBox.shrink();
                         }
@@ -58,13 +85,15 @@ class GraphWidget extends StatelessWidget {
                           axisSide: meta.axisSide,
                           child: Text(
                             days[value.toInt()],
-                            style: GoogleFonts.poppins(
-                              color: value.toInt() == currentDayIndex
-                                  ? Colors.redAccent
-                                  : Colors.white,
-                              fontWeight: value.toInt() == currentDayIndex
-                                  ? FontWeight.bold
-                                  : FontWeight.normal,
+                            style: GoogleFonts.urbanist(
+                              color:
+                                  value.toInt() == currentDayIndex
+                                      ? Colors.redAccent
+                                      : Colors.white,
+                              fontWeight:
+                                  value.toInt() == currentDayIndex
+                                      ? FontWeight.bold
+                                      : FontWeight.normal,
                               fontSize: 12,
                             ),
                           ),
@@ -82,7 +111,9 @@ class GraphWidget extends StatelessWidget {
                   /// --- Your Line (Pink) ---
                   LineChartBarData(
                     spots: List.generate(
-                        yourLine.length, (i) => FlSpot(i.toDouble(), yourLine[i].toDouble())),
+                      yourLine.length,
+                      (i) => FlSpot(i.toDouble(), yourLine[i].toDouble()),
+                    ),
                     isCurved: true,
                     color: Colors.pinkAccent,
                     barWidth: 2,
@@ -97,7 +128,10 @@ class GraphWidget extends StatelessWidget {
                             strokeColor: Colors.pinkAccent,
                           );
                         }
-                        return FlDotCirclePainter(radius: 0, color: Colors.transparent);
+                        return FlDotCirclePainter(
+                          radius: 0,
+                          color: Colors.transparent,
+                        );
                       },
                     ),
                   ),
@@ -105,7 +139,9 @@ class GraphWidget extends StatelessWidget {
                   /// --- Community Line (Blue) ---
                   LineChartBarData(
                     spots: List.generate(
-                        communityLine.length, (i) => FlSpot(i.toDouble(), communityLine[i].toDouble())),
+                      communityLine.length,
+                      (i) => FlSpot(i.toDouble(), communityLine[i].toDouble()),
+                    ),
                     isCurved: true,
                     color: Colors.blueAccent,
                     barWidth: 2,
@@ -115,23 +151,29 @@ class GraphWidget extends StatelessWidget {
                   /// --- Inner Red Dot for Today ---
                   LineChartBarData(
                     spots: [
-                      FlSpot(currentDayIndex.toDouble(), yourLine[currentDayIndex].toDouble())
+                      FlSpot(
+                        currentDayIndex.toDouble(),
+                        yourLine[currentDayIndex].toDouble(),
+                      ),
                     ],
                     isCurved: false,
                     color: Colors.transparent,
                     barWidth: 0,
                     dotData: FlDotData(
                       show: true,
-                      getDotPainter: (spot, percent, bar, index) => FlDotCirclePainter(
-                        radius: 3,
-                        color: Colors.red,
-                        strokeWidth: 0,
-                      ),
+                      getDotPainter:
+                          (spot, percent, bar, index) => FlDotCirclePainter(
+                            radius: 3,
+                            color: Colors.red,
+                            strokeWidth: 0,
+                          ),
                     ),
                   ),
                 ],
                 lineTouchData: const LineTouchData(enabled: false),
               ),
+           
+           
             ),
           ),
         ],
@@ -139,17 +181,19 @@ class GraphWidget extends StatelessWidget {
     );
   }
 
-  /// Legend Widget
-  Widget _buildLegend(Color color, String text) {
+  Widget _buildLegend(Widget iconWidget, String text) {
     return Row(
       children: [
-        Container(
-          width: 10,
-          height: 10,
-          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-        ),
+        SizedBox(width: 16, height: 16, child: iconWidget),
         const SizedBox(width: 6),
-        Text(text, style:  GoogleFonts.poppins(color: Colors.white, fontSize: 12,fontWeight: FontWeight.w600)),
+        Text(
+          text,
+          style: GoogleFonts.poppins(
+            color: Colors.white,
+            fontSize: 12,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ],
     );
   }

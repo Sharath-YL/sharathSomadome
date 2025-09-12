@@ -5,6 +5,7 @@ import 'package:somadome_p/views/IndexScreens/home/googlemaps/currentlocationscr
 import 'package:somadome_p/views/IndexScreens/home/googlemaps/googlemapscreen.dart';
 import 'package:somadome_p/views/IndexScreens/home/googlemaps/googlemapsdescriptionscreen.dart';
 import 'package:somadome_p/views/IndexScreens/home/pastordersessionscreen.dart';
+import 'package:somadome_p/views/IndexScreens/home/recomendationscreen.dart';
 import 'package:somadome_p/views/IndexScreens/home/viewsessionscreen.dart';
 import 'package:somadome_p/views/IndexScreens/learn/learn_screen.dart';
 import 'package:somadome_p/views/IndexScreens/profile/Accountinfo.dart';
@@ -24,13 +25,20 @@ import 'package:somadome_p/views/auth_screeen/reset_passcode.dart';
 import 'package:somadome_p/views/auth_screeen/resetpasscode_successful.dart';
 import 'package:somadome_p/views/auth_screeen/signin_page.dart';
 import 'package:somadome_p/views/cancelationscreens/cancelationscreen.dart';
+import 'package:somadome_p/views/connectscreens/connectscreen.dart';
 import 'package:somadome_p/views/date_timeselections/contactdetailsscreen.dart';
 import 'package:somadome_p/views/date_timeselections/dateselection.dart';
 import 'package:somadome_p/views/date_timeselections/timeselection.dart';
-
 import 'package:somadome_p/views/learnandstuffs/learnandstuffdescriptionscreen.dart';
 import 'package:somadome_p/views/learnandstuffs/topicsnamescreen.dart';
 import 'package:somadome_p/views/onboardings/onboardingscreen.dart';
+import 'package:somadome_p/views/sessionhelpers/beginintentionscreen.dart';
+import 'package:somadome_p/views/sessionhelpers/beginsessionscreen.dart';
+import 'package:somadome_p/views/sessionhelpers/sessionhelperdescripiotnscreen.dart';
+import 'package:somadome_p/views/sessionhelpers/sessionhelpermeditation.dart';
+import 'package:somadome_p/views/sessionhelpers/sessionhelperscreen.dart';
+import 'package:somadome_p/views/sessionhelpers/startsessionscreen.dart';
+import 'package:somadome_p/views/splashscreens/splashscreen.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -72,6 +80,41 @@ class Routes {
         return MaterialPageRoute(
           builder: (context) => Pastordersessionscreen(),
         );
+      case RoutesName.sessionhelperdescriptionscreen:
+        final id = settings.arguments;
+
+        if (id is String) {
+          return MaterialPageRoute(
+            builder: (context) => Sessionhelperdescripiotnscreen(id: id),
+          );
+        } else {
+          return MaterialPageRoute(
+            builder:
+                (context) =>
+                    Scaffold(body: Center(child: Text("Page not found"))),
+          );
+        } 
+     case RoutesName.startsessionscreen: 
+       return MaterialPageRoute(builder: (context)=>Startsessionscreen());
+     case RoutesName.beginsessionscreen: 
+        return MaterialPageRoute(builder: (context)=>Beginsessionscreen()); 
+    case RoutesName.beginintenetionscreen: 
+      return MaterialPageRoute(builder: (context)=>Beginintentionscreen());
+
+      case RoutesName.sessionhelpermeditationscreen:
+        final id = settings.arguments;
+
+        if (id is String) {
+          return MaterialPageRoute(
+            builder: (context) => Sessionhelpermeditationscreen(id: id),
+          );
+        } else {
+          return MaterialPageRoute(
+            builder:
+                (context) =>
+                    Scaffold(body: Center(child: Text("Page not found"))),
+          );
+        }
       case RoutesName.pushnotificatinscreen:
         return MaterialPageRoute(
           builder: (context) => Pushnotificationscreen(),
@@ -92,6 +135,14 @@ class Routes {
         return MaterialPageRoute(
           builder: (context) => Learnandstuffdescriptionscreen(),
         );
+      case RoutesName.recommandation:
+        return MaterialPageRoute(builder: (context) => RecommendationsScreen());
+      case RoutesName.connectscreen:
+        return MaterialPageRoute(builder: (context) => Connectscreen());
+      case RoutesName.sessionhelperscreen:
+        return MaterialPageRoute(builder: (context) => Sessionhelperscreen());
+      case RoutesName.splashscreen:
+        return MaterialPageRoute(builder: (context) => Splashscreen());
       case RoutesName.googlemapdescitionscreen:
         return MaterialPageRoute(
           builder: (context) => Googlemapsdescriptionscreen(),

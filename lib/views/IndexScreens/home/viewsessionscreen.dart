@@ -38,9 +38,11 @@ class _ViewsessionscreenState extends State<Viewsessionscreen> {
                 ),
                 title: Text(
                   'Booking',
-                  style: TextStyle(
+                  style: GoogleFonts.urbanist(
                     fontWeight: FontWeight.w600,
                     color: AppColors.white,
+                    fontSize: 18,
+                    letterSpacing: 0.3,
                   ),
                 ),
                 centerTitle: true,
@@ -181,7 +183,7 @@ class _ViewsessionscreenState extends State<Viewsessionscreen> {
                           onTap: () {
                             Navigator.pushNamed(
                               context,
-                              RoutesName.dateselection,
+                              RoutesName.connectscreen,
                             );
                           },
                           child: Container(

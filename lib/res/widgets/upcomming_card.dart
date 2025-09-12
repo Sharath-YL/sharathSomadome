@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
 
@@ -55,8 +56,8 @@ class UpcomingCard extends StatelessWidget {
                   left: 16,
                   top: 16,
                   child: Container(
-                    height: 40,
-                    width: 100,
+                    height: 32,
+                    width: 80,
                     decoration: BoxDecoration(
                       color: AppColors.yellowcolor,
                       borderRadius: BorderRadius.circular(10.r),
@@ -64,10 +65,11 @@ class UpcomingCard extends StatelessWidget {
                     child: Center(
                       child: Text(
                         "50% off ",
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.urbanist(
+                          letterSpacing: 0.5,
                           color: AppColors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
@@ -77,11 +79,7 @@ class UpcomingCard extends StatelessWidget {
                 Positioned(
                   right: 16,
                   top: 16,
-                  child: Icon(
-                    Icons.favorite_border_outlined,
-                    size: 30,
-                    color: Colors.white,
-                  ),
+                  child:SvgPicture.asset("assets/images/heart (1).svg")
                 ),
               ],
             ),
@@ -92,10 +90,12 @@ class UpcomingCard extends StatelessWidget {
               children: [
                 Text(
                   locationName,
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.urbanist(
                     fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.white,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.white, 
+                    letterSpacing: 0.4, 
+                    fontStyle: FontStyle.normal,
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -103,16 +103,12 @@ class UpcomingCard extends StatelessWidget {
                 const SizedBox(height: 4),
                 Row(
                   children: [
-                    const Icon(
-                      Icons.location_on,
-                      size: 14,
-                      color: Colors.white,
-                    ),
+                    SvgPicture.asset("assets/images/Group.svg"),
                     const SizedBox(width: 4),
                     Expanded(
                       child: Text(
-                        address,
-                        style: GoogleFonts.poppins(
+                        " 98432,${address}",
+                        style: GoogleFonts.urbanist(
                           fontSize: 13,
                           color: AppColors.white,
                         ),
@@ -127,8 +123,8 @@ class UpcomingCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "₹${price}/45 Mins",
-                      style: GoogleFonts.poppins(
+                      "\$${price}/45 Mins",
+                      style: GoogleFonts.urbanist(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
                         color: Colors.green,
@@ -137,20 +133,16 @@ class UpcomingCard extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        const Icon(
-                          Icons.star,
-                          size: 16,
-                          color: AppColors.white,
-                        ),
+                       SvgPicture.asset("assets/images/star.svg"),
                         const SizedBox(width: 4),
                         Text(
                           rating.toStringAsFixed(1),
-                          style: GoogleFonts.poppins(color: AppColors.white),
+                          style: GoogleFonts.urbanist(color: AppColors.white),
                         ),
                         const SizedBox(width: 4),
                         Text(
                           "($reviewCount)",
-                          style: GoogleFonts.poppins(color: AppColors.white),
+                          style: GoogleFonts.urbanist(color: AppColors.white),
                         ),
                       ],
                     ),

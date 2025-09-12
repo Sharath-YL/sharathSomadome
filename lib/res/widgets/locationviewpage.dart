@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
 
 class LocationViewPage extends StatefulWidget {
@@ -55,14 +57,14 @@ class _LocationViewPageState extends State<LocationViewPage> {
               top: 12,
               right: 12,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
                   color: AppColors.yellowcolor,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(8.r),
                 ),
                 child: Text(
                   widget.discount,
-                  style: const TextStyle(
+                  style:  GoogleFonts.urbanist(
                     color: AppColors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

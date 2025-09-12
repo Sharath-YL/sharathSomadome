@@ -96,7 +96,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     SizedBox(height: 10.h),
                     ResumeButton(
-                      buttonText: "Sign In",
+                      buttonText: "Sign Up",
                       onPressed: () {
                         Navigator.pushNamed(context, RoutesName.loginscreen);
                       },
