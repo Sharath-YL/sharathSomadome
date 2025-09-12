@@ -11,9 +11,14 @@ import 'package:somadome_p/views/IndexScreens/profile/profile_screen.dart';
 
 import '../home/home_screen.dart';
 
-class RootBottomNav extends StatelessWidget {
+class RootBottomNav extends StatefulWidget {
   const RootBottomNav({super.key});
 
+  @override
+  State<RootBottomNav> createState() => _RootBottomNavState();
+}
+
+class _RootBottomNavState extends State<RootBottomNav> {
   @override
   Widget build(BuildContext context) {
     final navVM = Provider.of<BottomNavViewModel>(context);

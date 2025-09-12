@@ -34,11 +34,14 @@ import 'package:somadome_p/views/learnandstuffs/topicsnamescreen.dart';
 import 'package:somadome_p/views/onboardings/onboardingscreen.dart';
 import 'package:somadome_p/views/sessionhelpers/beginintentionscreen.dart';
 import 'package:somadome_p/views/sessionhelpers/beginsessionscreen.dart';
+import 'package:somadome_p/views/sessionhelpers/menusessionscreen.dart';
 import 'package:somadome_p/views/sessionhelpers/sessionhelperdescripiotnscreen.dart';
 import 'package:somadome_p/views/sessionhelpers/sessionhelpermeditation.dart';
 import 'package:somadome_p/views/sessionhelpers/sessionhelperscreen.dart';
 import 'package:somadome_p/views/sessionhelpers/startsessionscreen.dart';
 import 'package:somadome_p/views/splashscreens/splashscreen.dart';
+import 'package:somadome_p/views/vedioplayerscreens/realquickscreen.dart';
+import 'package:somadome_p/views/vedioplayerscreens/vedioplayscreen.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -74,9 +77,11 @@ class Routes {
         return MaterialPageRoute(builder: (context) => ProfileScreen());
       case RoutesName.cancelationscreen:
         return MaterialPageRoute(builder: (context) => Cancelationscreen());
-      case RoutesName.profilepaymentscreen:
-        return MaterialPageRoute(builder: (context) => ProfilePaymentScreen());
-      case RoutesName.pastorderscreen:
+      case RoutesName.profilepaymentscreen: 
+        return MaterialPageRoute(builder: (context) => ProfilePaymentScreen()); 
+      case RoutesName.realquickscreen: 
+        return MaterialPageRoute(builder: (contxet)=>Realquickscreen());
+      case RoutesName.pastorderscreen: 
         return MaterialPageRoute(
           builder: (context) => Pastordersessionscreen(),
         );
@@ -93,13 +98,13 @@ class Routes {
                 (context) =>
                     Scaffold(body: Center(child: Text("Page not found"))),
           );
-        } 
-     case RoutesName.startsessionscreen: 
-       return MaterialPageRoute(builder: (context)=>Startsessionscreen());
-     case RoutesName.beginsessionscreen: 
-        return MaterialPageRoute(builder: (context)=>Beginsessionscreen()); 
-    case RoutesName.beginintenetionscreen: 
-      return MaterialPageRoute(builder: (context)=>Beginintentionscreen());
+        }
+      case RoutesName.startsessionscreen:
+        return MaterialPageRoute(builder: (context) => Startsessionscreen());
+      case RoutesName.beginsessionscreen:
+        return MaterialPageRoute(builder: (context) => Beginsessionscreen());
+      case RoutesName.beginintenetionscreen:
+        return MaterialPageRoute(builder: (context) => Beginintentionscreen());
 
       case RoutesName.sessionhelpermeditationscreen:
         final id = settings.arguments;
@@ -115,6 +120,10 @@ class Routes {
                     Scaffold(body: Center(child: Text("Page not found"))),
           );
         }
+      case RoutesName.menusessionscreen:
+        return MaterialPageRoute(builder: (context) => Menusessionscreen());
+      case RoutesName.vedioplayscreen:
+        return MaterialPageRoute(builder: (context) => Vedioplayscreen());
       case RoutesName.pushnotificatinscreen:
         return MaterialPageRoute(
           builder: (context) => Pushnotificationscreen(),

@@ -50,4 +50,7 @@ class RoutesName {
   static const String startsessionscreen="Startsessionscreen"; 
   static const String beginsessionscreen="Beginsessionscreen"; 
   static const String beginintenetionscreen="Beginintentionscreen";
+  static const String menusessionscreen="Menusessionscreen"; 
+  static const String vedioplayscreen="Vedioplayscreen"; 
+  static const String realquickscreen="Realquickscreen";
 }

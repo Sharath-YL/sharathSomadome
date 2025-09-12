@@ -47,4 +47,5 @@ class AppColors {
 
   static const Color titlecolor = Color.fromRGBO(246, 15, 255, 1); 
   static const Color linesegmentcolor = Color(0xffF60FFF);
+  static const Color iconcolor=Color.fromRGBO(255, 201, 0, 1);
 }
