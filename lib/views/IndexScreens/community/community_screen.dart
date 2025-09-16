@@ -1,30 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:somadome_p/res/widgets/activitycard.dart';
-import 'package:somadome_p/res/widgets/bookingcard.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
+import 'package:somadome_p/utis/routes/routename.dart';
 
 class CommunityScreen extends StatelessWidget {
   CommunityScreen({super.key});
 
-  // Dummy Booking Data
-  final List<Map<String, String>> bookings = List.generate(
-    6,
+  final List<Map<String, String>> activityData = List.generate(
+    5,
     (index) => {
-      "title": "Session ${index + 1}",
-      "subtitle": "Details of session ${index + 1}",
-      "daysLeft": "${index + 2} days left",
-      "imageUrl": "https://picsum.photos/200/200?random=$index",
-    },
-  );
-
-  // Dummy Activity Data
-  final List<Map<String, String>> activities = List.generate(
-    8,
-    (index) => {
-      "text": "Activity ${index + 1} completed successfully",
-      "imageUrl": "https://picsum.photos/100/100?random=${index + 10}",
+      "imageUrl": "assets/images/download.jpeg",
+      "text":
+          "Jessica in NYC, just did Maecenas id tellus metus. Vivamus id augue aliquam, condimentum sapien id...",
     },
   );
 
@@ -34,11 +23,11 @@ class CommunityScreen extends StatelessWidget {
       decoration: BoxDecoration(gradient: AppColors.backgroundgradient),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppBar(
+              surfaceTintColor: Colors.transparent,
               centerTitle: true,
               backgroundColor: Colors.transparent,
               automaticallyImplyLeading: false,
@@ -50,7 +39,7 @@ class CommunityScreen extends StatelessWidget {
               ),
               title: Text(
                 "Community",
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.urbanist(
                   color: AppColors.white,
                   fontWeight: FontWeight.w600,
                   fontSize: 18,
@@ -61,88 +50,231 @@ class CommunityScreen extends StatelessWidget {
               padding: EdgeInsets.all(12.w),
               child: Text(
                 "Top Rated Sessions This Week",
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.urbanist(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                 ),
               ),
             ),
-
-            // Booking list scrolls independently
             Expanded(
-              flex: 1,
               child: ListView.builder(
-                itemCount: bookings.length > 2 ? 6 : bookings.length,
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                scrollDirection: Axis.vertical,
+                itemCount: 3,
                 itemBuilder: (context, index) {
-                  final booking = bookings[index];
+                  final colors = [
+                    Colors.lightBlueAccent,
+                    AppColors.forgetpasswordcolor,
+                    AppColors.communitycolor,
+                  ];
+                  final titles = [
+                    'Top rated Session',
+                    'Most active user',
+                    'Somadome Session taken',
+                  ];
+                  final subtitles = [
+                    'Session Name',
+                    'User Name',
+                    'Session Name',
+                  ];
                   return Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 6.h,
-                      horizontal: 12.w,
+                    padding: EdgeInsets.only(
+                      bottom: 15.h,
+                      left: 5.w,
+                      right: 5.w,
                     ),
-                    child: BookingCard(
-                      title: booking["title"]!,
-                      subtitle: booking["subtitle"]!,
-                      daysLeft: booking["daysLeft"]!,
-                      imageUrl: booking["imageUrl"]!,
+                    child: Container(
+                      width: 220.w,
+                      padding: EdgeInsets.all(12.w),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.r),
+                        color: colors[index],
+                      ),
+                      child: BookingWidget(
+                        title: titles[index],
+                        subtitle: subtitles[index],
+                        id: "${index + 1}",
+                        color: Colors.transparent,
+                        ontap: () {
+                          Navigator.pushNamed(
+                            context,
+                            RoutesName.communitydescitpionscreen,
+                          );
+                        },
+                      ),
                     ),
                   );
                 },
               ),
             ),
-
-            // Row between Booking and Activity
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Activities",
-                    style: GoogleFonts.poppins(
+                    "Activity",
+                    style: GoogleFonts.urbanist(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
                     ),
                   ),
                   TextButton(
-                    onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (_) => SessionListScreen(bookings: bookings),
-                      //   ),
-                      // );
-                    },
+                    onPressed: () {},
                     child: Text(
-                      "View More",
-                      style: GoogleFonts.poppins(
+                      "See All",
+                      style: GoogleFonts.urbanist(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                        color: AppColors.forgetpasswordcolor,
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-
-            // ----------------- ACTIVITIES SECTION -----------------
             Expanded(
               flex: 1,
               child: ListView.builder(
-                itemCount: activities.length,
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                itemCount: activityData.length,
                 itemBuilder: (context, index) {
-                  final activity = activities[index];
                   return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12.w),
+                    padding: EdgeInsets.symmetric(vertical: 6.h),
                     child: ActivityCard(
-                      imageUrl: activity["imageUrl"]!,
-                      text: activity["text"]!,
+                      imageUrl: activityData[index]["imageUrl"]!,
+                      text: activityData[index]["text"]!,
                     ),
                   );
                 },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class BookingWidget extends StatelessWidget {
+  final Color? color;
+  final String? title;
+  final String? subtitle;
+  final String? id;
+  final VoidCallback? ontap;
+
+  const BookingWidget({
+    super.key,
+    this.color,
+    this.title,
+    this.subtitle,
+    this.id,
+    this.ontap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        GestureDetector(
+          onTap: ontap,
+          child: Container(
+            decoration: BoxDecoration(color: color),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title ?? "",
+                  style: GoogleFonts.urbanist(
+                    color: AppColors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16.sp,
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                Text(
+                  subtitle ?? "",
+                  style: GoogleFonts.urbanist(
+                    color: AppColors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 32.sp,
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                Container(
+                  height: 20.h,
+                  width: 20.w,
+                  padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.h),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.r),
+                    color: AppColors.white,
+                    shape: BoxShape.rectangle,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "#$id",
+                      style: GoogleFonts.urbanist(
+                        color: AppColors.errorcolor,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12.sp,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ActivityCard extends StatelessWidget {
+  final String imageUrl;
+  final String text;
+
+  const ActivityCard({super.key, required this.imageUrl, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color.fromRGBO(255, 96, 121, 1).withOpacity(0.07),
+            Color.fromRGBO(255, 96, 121, 0.96).withOpacity(0.07),
+          ],
+        ),
+      ),
+      margin: EdgeInsets.symmetric(horizontal: 8.w),
+      child: Padding(
+        padding: EdgeInsets.all(12.w),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipOval(
+              child: Image.asset(
+                imageUrl,
+                width: 48.r,
+                height: 48.r,
+                fit: BoxFit.cover,
+              ),
+            ),
+
+            SizedBox(width: 12.w),
+            Expanded(
+              child: Text(
+                text,
+                style: GoogleFonts.urbanist(
+                  fontSize: 14.sp,
+                  color: AppColors.white,
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ],

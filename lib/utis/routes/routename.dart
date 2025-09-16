@@ -52,5 +52,8 @@ class RoutesName {
   static const String beginintenetionscreen="Beginintentionscreen";
   static const String menusessionscreen="Menusessionscreen"; 
   static const String vedioplayscreen="Vedioplayscreen"; 
-  static const String realquickscreen="Realquickscreen";
-}
+  static const String realquickscreen="Realquickscreen"; 
+  static const String privacypolicyscreen="Privacypolicyscreen";
+  static const String aboutusscreen="Aboutscreen"; 
+  static const String communitydescitpionscreen="Communiitydescriptionscreen";
+}  

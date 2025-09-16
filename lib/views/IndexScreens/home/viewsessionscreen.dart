@@ -100,7 +100,9 @@ class _ViewsessionscreenState extends State<Viewsessionscreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Expanded(
+                        Flexible(
+                          fit: FlexFit.tight,
+
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 5.w),
                             child: sessioncontainer(
@@ -112,7 +114,8 @@ class _ViewsessionscreenState extends State<Viewsessionscreen> {
                             ),
                           ),
                         ),
-                        Expanded(
+                        Flexible(
+                          fit: FlexFit.tight,
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 5.w),
                             child: sessioncontainer(
@@ -122,7 +125,8 @@ class _ViewsessionscreenState extends State<Viewsessionscreen> {
                             ),
                           ),
                         ),
-                        Expanded(
+                        Flexible(
+                          fit: FlexFit.tight,
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 5.w),
                             child: sessioncontainer(
@@ -147,7 +151,7 @@ class _ViewsessionscreenState extends State<Viewsessionscreen> {
                     Text(
                       'Stretch out on the sofa while spping a drink from ',
                       style: GoogleFonts.poppins(
-                        color: AppColors.white.withOpacity(0.5),
+                        color: const Color.fromARGB(255, 123, 20, 20).withOpacity(0.5),
                         fontWeight: FontWeight.w600,
                         fontSize: 14,
                       ),

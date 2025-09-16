@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
 import 'package:intl/intl.dart';
-import 'package:somadome_p/views/vedioplayerscreens/mediumvolumescreen.dart';
+import 'package:somadome_p/views/vedioplayerscreens/novolumescreen.dart';
+import 'package:somadome_p/views/vedioplayerscreens/thanksession.dart';
 
 class Highvoulumevedioscreen extends StatefulWidget {
   const Highvoulumevedioscreen({super.key});
@@ -20,10 +21,10 @@ class _HighvoulumevedioscreenState extends State<Highvoulumevedioscreen> {
 
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 3), () {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Mediumvolumescreen()),
+        MaterialPageRoute(builder: (context) => Novolumescreen()),
       );
     });
 
@@ -141,4 +142,3 @@ class _HighvoulumevedioscreenState extends State<Highvoulumevedioscreen> {
     );
   }
 }
-

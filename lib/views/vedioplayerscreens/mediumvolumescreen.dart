@@ -20,7 +20,7 @@ class _MediumvolumescreenState extends State<Mediumvolumescreen> {
 
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 1), () {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => Novolumescreen()),

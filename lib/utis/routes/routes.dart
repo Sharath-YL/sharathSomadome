@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:somadome_p/utis/routes/routename.dart';
 import 'package:somadome_p/views/IndexScreens/book/upcomingdescritionscreen.dart';
+import 'package:somadome_p/views/IndexScreens/community/communiitydescriptionscreen.dart';
 import 'package:somadome_p/views/IndexScreens/home/googlemaps/currentlocationscreen.dart';
 import 'package:somadome_p/views/IndexScreens/home/googlemaps/googlemapscreen.dart';
 import 'package:somadome_p/views/IndexScreens/home/googlemaps/googlemapsdescriptionscreen.dart';
@@ -8,9 +9,11 @@ import 'package:somadome_p/views/IndexScreens/home/pastordersessionscreen.dart';
 import 'package:somadome_p/views/IndexScreens/home/recomendationscreen.dart';
 import 'package:somadome_p/views/IndexScreens/home/viewsessionscreen.dart';
 import 'package:somadome_p/views/IndexScreens/learn/learn_screen.dart';
+import 'package:somadome_p/views/IndexScreens/profile/Aboutscreen.dart';
 import 'package:somadome_p/views/IndexScreens/profile/Accountinfo.dart';
 import 'package:somadome_p/views/IndexScreens/profile/ProfilepaymentScreen.dart';
 import 'package:somadome_p/views/IndexScreens/profile/linkAccountscreen.dart';
+import 'package:somadome_p/views/IndexScreens/profile/privacypolicyscreen.dart';
 import 'package:somadome_p/views/IndexScreens/profile/profile_screen.dart';
 import 'package:somadome_p/views/IndexScreens/profile/pushnotificationscreen.dart';
 import 'package:somadome_p/views/ReserveScreens/completereservescreen.dart';
@@ -80,7 +83,13 @@ class Routes {
       case RoutesName.profilepaymentscreen: 
         return MaterialPageRoute(builder: (context) => ProfilePaymentScreen()); 
       case RoutesName.realquickscreen: 
-        return MaterialPageRoute(builder: (contxet)=>Realquickscreen());
+        return MaterialPageRoute(builder: (contxet)=>Realquickscreen()); 
+      case RoutesName.privacypolicyscreen: 
+        return MaterialPageRoute(builder: (context)=>Privacypolicyscreen()); 
+      case RoutesName.aboutusscreen: 
+        return MaterialPageRoute(builder: (context)=>Aboutscreen());
+      case RoutesName.communitydescitpionscreen: 
+        return MaterialPageRoute(builder: (context)=>Communiitydescriptionscreen());
       case RoutesName.pastorderscreen: 
         return MaterialPageRoute(
           builder: (context) => Pastordersessionscreen(),

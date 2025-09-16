@@ -53,7 +53,9 @@ class _ConnectscreenState extends State<Connectscreen> {
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, RoutesName.beginsessionscreen);
+                  },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(
                       color: AppColors.forgetpasswordcolor,
@@ -74,9 +76,12 @@ class _ConnectscreenState extends State<Connectscreen> {
                 ),
               ),
               const SizedBox(height: 16),
-              ResumeButton(buttonText: "Select a session", onPressed: () { 
-                Navigator.pushNamed(context, RoutesName.sessionhelperscreen);
-              }),
+              ResumeButton(
+                buttonText: "Select a session",
+                onPressed: () {
+                  Navigator.pushNamed(context, RoutesName.sessionhelperscreen);
+                },
+              ),
             ],
           ),
         );

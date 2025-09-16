@@ -142,7 +142,7 @@ class _PaymentmethodscreenState extends State<Paymentmethodscreen> {
               ResumeButton(
                 buttonText: "Select",
                 onPressed: () {
-                  Navigator.pushNamed(context, RoutesName.couponscreen);
+                  Navigator.pushNamed(context, RoutesName.paymentscreen);
                 },
               ),
             ],

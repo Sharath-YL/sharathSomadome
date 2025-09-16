@@ -27,16 +27,15 @@ class _SessionhelperscreenState extends State<Sessionhelperscreen> {
     super.initState();
   }
 
- @override
-void dispose() {
-  final sessionProvider = Provider.of<SessionHelperProvider>(
-    context,
-    listen: false,
-  );
-  sessionProvider.clearselectedsession();
-  super.dispose();
-}
-
+  @override
+  void dispose() {
+    final sessionProvider = Provider.of<SessionHelperProvider>(
+      context,
+      listen: false,
+    );
+    sessionProvider.clearselectedsession();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

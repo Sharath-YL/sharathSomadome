@@ -123,57 +123,67 @@ class _GooglemapsdescriptionscreenState
                           horizontal: 12,
                           vertical: 8,
                         ),
-                        child: Container(
-                          padding: const EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.01),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Row(
-                            children: [
-                              // Left Icon
-                              CircleAvatar(
-                                radius: 20,
-                                backgroundColor: AppColors.white,
-                                child: Icon(
-                                  location.icon,
-                                  color: AppColors.buttonpink,
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              RoutesName.currentlocationscreen,
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.01),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Row(
+                              children: [
+                                // Left Icon
+                                CircleAvatar(
+                                  radius: 20,
+                                  backgroundColor: AppColors.white,
+                                  child: Icon(
+                                    location.icon,
+                                    color: AppColors.buttonpink,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(width: 12),
-                              // Text Info
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      location.title,
-                                      style: GoogleFonts.urbanist(
-                                        color: AppColors.titlecolor,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w700,
+                                SizedBox(width: 12),
+                                // Text Info
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        location.title,
+                                        style: GoogleFonts.urbanist(
+                                          color: AppColors.titlecolor,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w700,
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(height: 4),
-                                    Text(
-                                      location.subtitle,
-                                      style: GoogleFonts.urbanist(
-                                        color: Colors.white.withOpacity(0.7),
-                                        fontSize: 13,
+                                      SizedBox(height: 4),
+                                      Text(
+                                        location.subtitle,
+                                        style: GoogleFonts.urbanist(
+                                          color: Colors.white.withOpacity(0.7),
+                                          fontSize: 13,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              CircleAvatar(
-                                radius: 16,
-                                backgroundColor:
-                                    location.backgroundColor ?? AppColors.white,
-                                child: Image.asset(
-                                  "assets/images/locationimage.png",
+                                CircleAvatar(
+                                  radius: 16,
+                                  backgroundColor:
+                                      location.backgroundColor ??
+                                      AppColors.white,
+                                  child: Image.asset(
+                                    "assets/images/locationimage.png",
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       );

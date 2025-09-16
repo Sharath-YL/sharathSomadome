@@ -162,7 +162,7 @@ class HomeBooking extends StatelessWidget {
 
           Container(
             width: double.infinity,
-            height: 130,
+            height: 140.h,
             decoration: BoxDecoration(
               color: AppColors.coralcolor,
               borderRadius: BorderRadius.circular(20),

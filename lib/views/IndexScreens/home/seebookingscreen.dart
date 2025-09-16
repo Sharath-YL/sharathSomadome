@@ -25,13 +25,13 @@ class _SeebookingscreenState extends State<Seebookingscreen> {
     super.initState();
     _selectedSegment.value = 'Past Orders';
     if (_selectedSegment.value == 'Past Orders') {
-      Future.delayed(const Duration(seconds: 2), () {
-        if (mounted) {
-          setState(() {
-            isLoading = false;
-          });
-        }
-      });
+      // Future.delayed(const Duration(seconds: 1), () {
+      if (mounted) {
+        setState(() {
+          isLoading = false;
+        });
+      }
+      // });
     }
   }
 
@@ -53,7 +53,6 @@ class _SeebookingscreenState extends State<Seebookingscreen> {
             return Stack(
               fit: StackFit.expand,
               children: [
-                // Background Image
                 if (segment == 'Past Orders' && isLoading)
                   Image.asset(
                     'assets/images/clodes1.webp',
@@ -63,7 +62,9 @@ class _SeebookingscreenState extends State<Seebookingscreen> {
                   )
                 else
                   Container(
-                     decoration: const BoxDecoration(gradient: AppColors.backgroundgradient),
+                    decoration: const BoxDecoration(
+                      gradient: AppColors.backgroundgradient,
+                    ),
                   ),
                 SingleChildScrollView(
                   physics: ScrollPhysics(),
@@ -109,7 +110,7 @@ class _SeebookingscreenState extends State<Seebookingscreen> {
                             color: AppColors.blackcolor,
                             fontWeight: FontWeight.w500,
                           ),
-                          animationDuration: const Duration(seconds: 2),
+                          // animationDuration: const Duration(seconds: 2),
                           segments: {
                             'Past Orders': 'Past Orders',
                             'Upcoming': 'Upcoming',

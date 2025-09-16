@@ -98,7 +98,8 @@ class _PastordersessionscreenState extends State<Pastordersessionscreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Expanded(
+                        Flexible(
+                          fit: FlexFit.tight,
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 5.w),
                             child: sessioncontainer(
@@ -110,7 +111,8 @@ class _PastordersessionscreenState extends State<Pastordersessionscreen> {
                             ),
                           ),
                         ),
-                        Expanded(
+                        Flexible(
+                          fit: FlexFit.tight,
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 5.w),
                             child: sessioncontainer(
@@ -120,7 +122,8 @@ class _PastordersessionscreenState extends State<Pastordersessionscreen> {
                             ),
                           ),
                         ),
-                        Expanded(
+                        Flexible(
+                          fit: FlexFit.tight,
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 5.w),
                             child: sessioncontainer(

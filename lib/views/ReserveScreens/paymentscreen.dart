@@ -399,7 +399,7 @@ class Cuponwidget extends StatelessWidget {
                 "Coupon Code ",
                 style: GoogleFonts.urbanist(color: AppColors.white),
               ),
-              SizedBox(width: 110),
+              SizedBox(width: 150.sp),
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, RoutesName.couponscreen);

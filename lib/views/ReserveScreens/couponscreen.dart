@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
 import 'package:somadome_p/res/widgets/customresumebutton.dart';
 import 'package:somadome_p/res/widgets/customsearchtextfield.dart';
+import 'package:somadome_p/utis/routes/routename.dart';
 import 'package:somadome_p/utis/toastmessage.dart';
 
 class Couponscreen extends StatefulWidget {
@@ -54,11 +55,7 @@ class _CouponscreenState extends State<Couponscreen> {
                 child: ResumeButton(
                   buttonText: "Apply",
                   onPressed: () {
-                    // Navigator.pushAndRemoveUntil(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => RootBottomNav(), ),
-                    //   (route)=>false
-                    // );
+                  Navigator.pushNamed(context, RoutesName.paymentscreen);
                     Utils.flushbarSuccessMessage(
                       "Your Coupons as been added Sucessfully",
                       context,

@@ -19,10 +19,8 @@ class Sessionhelperdescripiotnscreen extends StatefulWidget {
 class _SessionhelperdescripiotnscreenState
     extends State<Sessionhelperdescripiotnscreen> {
   @override
-  @override
   void initState() {
     super.initState();
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final sessionProvider = Provider.of<SessionHelperProvider>(
         context,
@@ -37,15 +35,16 @@ class _SessionhelperdescripiotnscreenState
     });
   }
 
-@override
-void dispose() {
-  final sessionProvider = Provider.of<SessionHelperProvider>(
-    context,
-    listen: false,
-  );
-  sessionProvider.clearselectedsession();
-  super.dispose();
-}
+  @override
+  void dispose() {
+    if (mounted) ;
+    final sessionProvider = Provider.of<SessionHelperProvider>(
+      context,
+      listen: false,
+    );
+    sessionProvider.clearselectedsession();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +121,6 @@ class SelectedHelperDescriptionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sessionProvider = Provider.of<SessionHelperProvider>(context);
-
 
     return Column(
       children: [
@@ -220,13 +218,13 @@ class SelectedHelperDescriptionWidget extends StatelessWidget {
                 ],
               ),
               GestureDetector(
-
-              
                 onTap:
                     sessionProvider.selectedDescription == null
                         ? null
                         : () {
-                          print("Selected Meditation: ${sessionProvider.selectedSession?.Id}");
+                          print(
+                            "Selected Meditation: ${sessionProvider.selectedSession?.Id}",
+                          );
                           Navigator.pushNamed(
                             context,
                             RoutesName.sessionhelpermeditationscreen,

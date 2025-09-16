@@ -201,9 +201,10 @@ class _ThanksessionState extends State<Thanksession> {
               ResumeButton(
                 buttonText: "Back to session",
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (context) => RootBottomNav()),
+                    (route) => false,
                   );
                 },
               ),

@@ -110,11 +110,23 @@ class SettingsWidget extends StatelessWidget {
             onTap: () {},
           ),
           Divider(),
+          settingsTile(icon: Icons.privacy_tip, title: "Privacy", onTap: () { 
+            Navigator.pushNamed(context, RoutesName.privacypolicyscreen);
+          }),
+          Divider(),
           settingsTile(
             icon: Icons.notifications_none,
             title: "Notification setting",
             onTap: () {
               Navigator.pushNamed(context, RoutesName.pushnotificatinscreen);
+            },
+          ),
+             Divider(),
+          settingsTile(
+            icon: Icons.account_box,
+            title: "About Us",
+            onTap: () {
+              Navigator.pushNamed(context, RoutesName.aboutusscreen);
             },
           ),
           Divider(),
