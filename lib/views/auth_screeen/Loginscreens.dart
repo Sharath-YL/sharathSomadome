@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:somadome_p/res/widgets/customresumebutton.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
 import 'package:somadome_p/utis/routes/routename.dart';
@@ -18,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(gradient: AppColors.backgroundgradient),
+      decoration: const BoxDecoration(gradient: AppColors.scaffoldColor),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
@@ -39,11 +41,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 20),
 
-                const Text(
+                 Text(
                   "Phone Number",
-                  style: TextStyle(
+                  style: GoogleFonts.urbanist(
                     color: Colors.white,
-                    fontSize: 22,
+                    fontSize: 32,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -51,15 +53,16 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 Text(
                   "We will call or send SMS to confirm your number.",
-                  style: TextStyle(
+                  style: GoogleFonts.urbanist(
                     color: Colors.white.withOpacity(0.8),
-                    fontSize: 14,
+                    fontSize: 16,
+                    letterSpacing: 0.4
                   ),
                 ),
                 const SizedBox(height: 30),
 
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                   decoration: BoxDecoration(
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(10),
@@ -78,9 +81,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(width: 8),
 
-                      const Text(
+                       Text(
                         "+91",
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                        style: GoogleFonts.urbanist(color: Colors.white, fontSize: 16),
                       ),
                       const SizedBox(width: 12),
 
@@ -94,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Expanded(
                         child: TextField(
                           controller: _phoneController,
-                          style: const TextStyle(
+                          style:  GoogleFonts.urbanist(
                             color: Colors.white,
                             fontSize: 16,
                           ),
@@ -106,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Enter phone number',
-                            hintStyle: TextStyle(
+                            hintStyle: GoogleFonts.urbanist(
                               color: Colors.white.withOpacity(0.5),
                             ),
                           ),
@@ -145,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 //     ),
                 //     child: const Text(
                 //       "Send Code",
-                //       style: TextStyle(
+                //       style: GoogleFonts.urbanist(
                 //         fontWeight: FontWeight.bold,
                 //         fontSize: 16,
                 //         color: AppColors.white,
@@ -153,22 +156,25 @@ class _LoginScreenState extends State<LoginScreen> {
                 //     ),
                 //   ),
                 // ),
-                ResumeButton(
-                  buttonText: "Send Code ",
-                  onPressed: () {
-                    if (_phoneController.text.length == 10) {
-                      Navigator.pushNamed(
-                        context,
-                        RoutesName.otpscreen,
-                        arguments: _phoneController.text,
-                      );
-                    } else {
-                      Utils.flushbarErrorMessage(
-                        "Please enter the 10 digits mobile Number",
-                        context,
-                      );
-                    }
-                  },
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: ResumeButton(
+                    buttonText: "Send Code ",
+                    onPressed: () {
+                      if (_phoneController.text.length == 10) {
+                        Navigator.pushNamed(
+                          context,
+                          RoutesName.otpscreen,
+                          arguments: _phoneController.text,
+                        );
+                      } else {
+                        Utils.flushbarErrorMessage(
+                          "Please enter the 10 digits mobile Number",
+                          context,
+                        );
+                      }
+                    },
+                  ),
                 ),
                 const SizedBox(height: 20),
               ],

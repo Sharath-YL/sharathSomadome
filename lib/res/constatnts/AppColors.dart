@@ -8,21 +8,31 @@ class AppColors {
   static const Color skipcolor = Color.fromRGBO(122, 106, 141, 1); // #9D47FF
   static const Color goldenBrown = Color(0xFF9D47FF); // #9D47FF
 
-  static const Color backgroundcolor = Color(0xFF9D47FF); // #9D47FF
+  static const Color backgroundcolor =Color.fromRGBO(154, 0, 255, 1); // #9D47FF
   static const LinearGradient backgroundgradient = LinearGradient(
-    colors: [
-      Color.fromRGBO(90, 46, 153, 0.90),
-      Color.fromRGBO(90, 46, 153, 0.90),
-    ],
+     begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+  colors: [
+    Color.fromRGBO(50, 60, 120, 1),   // Darker version of the color (top)
+    Color.fromRGBO(50, 60, 120, 1),   // Same dark color (bottom)
+  ],
+  stops: const [0.0, 1.0], 
   );
 
   static const LinearGradient imagecolor = LinearGradient(
     colors: [Color.fromRGBO(157, 71, 255, 1), Color.fromRGBO(107, 110, 255, 1)],
   );
 
-  static const LinearGradient scafoldcolor = LinearGradient(
-    colors: [Color.fromRGBO(157, 71, 255, 1), Color.fromRGBO(157, 71, 255, 1)],
-  );
+
+static const LinearGradient scaffoldColor = LinearGradient(
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+  colors: [
+    Color.fromRGBO(50, 60, 120, 1),   // Darker version of the color (top)
+    Color.fromRGBO(50, 60, 120, 1),   // Same dark color (bottom)
+  ],
+  stops: const [0.0, 1.0],  // No transition, solid color
+);
 
   static const Color jungleGreen = Color(0xFF0CAF60); // #27AE60
   static const Color steelBlue = Color(0xFF2980B9); // #2980B9

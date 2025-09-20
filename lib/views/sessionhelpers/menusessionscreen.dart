@@ -125,14 +125,19 @@ class _MenusessionscreenState extends State<Menusessionscreen> {
                 ),
                 Divider(),
                 SizedBox(height: 10,),
-                Container( 
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  decoration: BoxDecoration( 
-                    color: AppColors.forgetpasswordcolor, 
-                    borderRadius: BorderRadius.circular(15)
-                  ),
-                  child: Center( 
-                    child: Text("Main Session Menu",style: GoogleFonts.urbanist(color: AppColors.white, fontWeight: FontWeight.w500),),
+                GestureDetector(
+                  onTap: (){ 
+                    Navigator.pushNamed(context, RoutesName.connectscreen);
+                  },
+                  child: Container( 
+                    padding: EdgeInsets.symmetric(vertical: 15),
+                    decoration: BoxDecoration( 
+                      color: AppColors.forgetpasswordcolor, 
+                      borderRadius: BorderRadius.circular(15)
+                    ),
+                    child: Center( 
+                      child: Text("Main Session Menu",style: GoogleFonts.urbanist(color: AppColors.white, fontWeight: FontWeight.w500),),
+                    ),
                   ),
                 ), 
                 SizedBox(height: 15,), 

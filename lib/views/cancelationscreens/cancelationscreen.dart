@@ -56,7 +56,7 @@ class _CancelationscreenState extends State<Cancelationscreen> {
                 style: GoogleFonts.urbanist(
                   color: AppColors.white,
                   fontSize: 20,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w700,
                   letterSpacing: 0.5,
                 ),
               ),
@@ -100,7 +100,7 @@ class Refundwidget extends StatelessWidget {
       padding: EdgeInsets.all(12.w),
       margin: EdgeInsets.symmetric(vertical: 8.h),
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.white.withOpacity(1)),
+        border: Border.all(color: AppColors.white.withOpacity(0.7)),
         borderRadius: BorderRadius.circular(12.r),
         color: Colors.transparent,
       ),
@@ -116,7 +116,7 @@ class Refundwidget extends StatelessWidget {
                 style: GoogleFonts.urbanist(
                   fontSize: 14.sp,
                   color: AppColors.white,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ],
@@ -129,7 +129,7 @@ class Refundwidget extends StatelessWidget {
             style: GoogleFonts.urbanist(
               fontSize: 14.sp,
               color: AppColors.white,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],

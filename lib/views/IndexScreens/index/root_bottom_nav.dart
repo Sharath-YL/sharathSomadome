@@ -31,77 +31,71 @@ class _RootBottomNavState extends State<RootBottomNav> {
       ProfileScreen(),
     ];
 
-    return Container(
-      decoration: BoxDecoration(gradient: AppColors.backgroundgradient),
-      child: Scaffold(
-        body: IndexedStack(index: navVM.currentIndex, children: pages),
-        bottomNavigationBar: Container(
-          decoration: BoxDecoration(gradient: AppColors.scafoldcolor),
-          child: BottomNavigationBar(
-            selectedFontSize: 10,
-            unselectedFontSize: 10,
+    return Scaffold(
+      body: IndexedStack(index: navVM.currentIndex, children: pages),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedFontSize: 10,
+        unselectedFontSize: 10,
 
-            backgroundColor: Colors.transparent,
-            type: BottomNavigationBarType.fixed,
-            currentIndex: navVM.currentIndex,
-            onTap: navVM.changeTab,
-            selectedItemColor: AppColors.white,
-            unselectedItemColor: Color.fromRGBO(246, 15, 255, 1),
-            showUnselectedLabels: true,
-            items: [
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "assets/images/home.svg",
-                  color:
-                      navVM.currentIndex == 0
-                          ? AppColors.white
-                          : Color.fromRGBO(246, 15, 255, 1),
-                ),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "assets/images/heart.svg",
-                  color:
-                      navVM.currentIndex == 1
-                          ? AppColors.white
-                          : Color.fromRGBO(246, 15, 255, 1),
-                ),
-                label: 'Community',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "assets/images/calendar (1).svg",
-                  color:
-                      navVM.currentIndex == 2
-                          ? AppColors.white
-                          : Color.fromRGBO(246, 15, 255, 1),
-                ),
-                label: 'Book',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "assets/images/book.svg",
-                  color:
-                      navVM.currentIndex == 3
-                          ? AppColors.white
-                          : Color.fromRGBO(246, 15, 255, 1),
-                ),
-                label: 'Learn',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "assets/images/user.svg",
-                  color:
-                      navVM.currentIndex == 4
-                          ? AppColors.white
-                          : Color.fromRGBO(246, 15, 255, 1),
-                ),
-                label: 'Profile',
-              ),
-            ],
+        backgroundColor: Color.fromRGBO(50, 60, 120, 1),
+        type: BottomNavigationBarType.fixed,
+        currentIndex: navVM.currentIndex,
+        onTap: navVM.changeTab,
+        selectedItemColor: AppColors.white,
+        unselectedItemColor: Color.fromRGBO(246, 15, 255, 1),
+        showUnselectedLabels: true,
+        items: [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              "assets/images/home.svg",
+              color:
+                  navVM.currentIndex == 0
+                      ? AppColors.white
+                      : Color.fromRGBO(246, 15, 255, 1),
+            ),
+            label: 'Home',
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              "assets/images/heart.svg",
+              color:
+                  navVM.currentIndex == 1
+                      ? AppColors.white
+                      : Color.fromRGBO(246, 15, 255, 1),
+            ),
+            label: 'Community',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              "assets/images/calendar (1).svg",
+              color:
+                  navVM.currentIndex == 2
+                      ? AppColors.white
+                      : Color.fromRGBO(246, 15, 255, 1),
+            ),
+            label: 'Book',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              "assets/images/book.svg",
+              color:
+                  navVM.currentIndex == 3
+                      ? AppColors.white
+                      : Color.fromRGBO(246, 15, 255, 1),
+            ),
+            label: 'Learn',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              "assets/images/user.svg",
+              color:
+                  navVM.currentIndex == 4
+                      ? AppColors.white
+                      : Color.fromRGBO(246, 15, 255, 1),
+            ),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }

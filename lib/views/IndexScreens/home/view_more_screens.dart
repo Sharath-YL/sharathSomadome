@@ -33,6 +33,7 @@ class ViewMoreScreen extends StatelessWidget {
             zip: loc['zip']!,
             rating: loc['rating']!,
             price: loc['price']!,  location: loc['location']!,
+            time: loc['time']!,
           );
         },
       ),

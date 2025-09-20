@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
 import 'package:somadome_p/utis/routes/routename.dart';
+import 'package:somadome_p/views/vedioplayerscreens/thanksession.dart';
 
 class Vedioplayscreen extends StatefulWidget {
   const Vedioplayscreen({super.key});
@@ -21,8 +22,11 @@ class _VedioplayscreenState extends State<Vedioplayscreen> {
 
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 5), () {
-      Navigator.pushNamed(context, RoutesName.realquickscreen);
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Thanksession()),
+      );
     });
     super.initState();
   }

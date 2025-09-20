@@ -28,188 +28,203 @@ class _ThanksessionState extends State<Thanksession> {
       context: context,
       isScrollControlled: true,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       backgroundColor: Color.fromRGBO(70, 62, 153, 1),
       builder: (context) {
-        return Padding(
-          padding: const EdgeInsets.fromLTRB(24, 32, 24, 36),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(height: 30),
-              Text(
-                "Thanks for the session",
-                style: GoogleFonts.urbanist(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              const SizedBox(height: 12),
+            List<bool> isSelectedRow1 = [false, false, false];
+            List<bool> isSelectedRow2 = [false, false, false];
+            List<bool> isSelectedRow3 = [false, false, false];
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+          
 
-              Text(
-                "How are you feeling after?",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.urbanist(
-                  fontSize: 14,
-                  color: Colors.white.withOpacity(0.7),
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.5,
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                "Click how you feel:",
-                style: GoogleFonts.urbanist(
-                  fontSize: 14,
-                  color: Colors.white.withOpacity(0.9),
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.5,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(24, 32, 24, 36),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.buttonpink),
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset("assets/images/sun.svg"),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.buttonpink),
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset("assets/images/cloudy.svg"),
+                  SizedBox(height: 30),
+                  Text(
+                    "Thanks for the session",
+                    style: GoogleFonts.urbanist(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.buttonpink),
+                  const SizedBox(height: 12),
+                  Text(
+                    "How are you feeling after?",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.urbanist(
+                      fontSize: 14,
+                      color: Colors.white70,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.5,
                     ),
-                    child: Center(
-                      child: SvgPicture.asset("assets/images/cloud (1).svg"),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "Click how you feel:",
+                    style: GoogleFonts.urbanist(
+                      fontSize: 14,
+                      color: AppColors.white.withOpacity(0.5),
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.5,
                     ),
+                  ),
+                  const SizedBox(height: 12),
+                  // Row 1
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: List.generate(3, (index) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isSelectedRow1[index] = !isSelectedRow1[index];
+                          });
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color:
+                                  isSelectedRow1[index]
+                                      ? AppColors.white
+                                      : AppColors.buttonpink,
+                            ),
+                          ),
+                          child: Center(
+                            child: SvgPicture.asset(
+                              index == 0
+                                  ? "assets/images/sun.svg"
+                                  : index == 1
+                                  ? "assets/images/cloudy.svg"
+                                  : "assets/images/cloud (1).svg",
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "Click how you feel:",
+                    style: GoogleFonts.urbanist(
+                      fontSize: 14,
+                      color: AppColors.white.withOpacity(0.5),
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  // Row 2
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: List.generate(3, (index) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isSelectedRow2[index] = !isSelectedRow2[index];
+                          });
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color:
+                                  isSelectedRow2[index]
+                                      ? AppColors.white
+                                      : AppColors.buttonpink,
+                            ),
+                          ),
+                          child: Center(
+                            child: SvgPicture.asset(
+                              index == 0
+                                  ? "assets/images/sun.svg"
+                                  : index == 1
+                                  ? "assets/images/cloudy.svg"
+                                  : "assets/images/cloud (1).svg",
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "Click how you feel:",
+                    style: GoogleFonts.urbanist(
+                      fontSize: 14,
+                      color: AppColors.white.withOpacity(0.5),
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  // Row 3
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: List.generate(3, (index) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isSelectedRow3[index] = !isSelectedRow3[index];
+                          });
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color:
+                                  isSelectedRow3[index]
+                                      ? AppColors.white
+                                      : AppColors.buttonpink,
+                            ),
+                          ),
+                          child: Center(
+                            child: SvgPicture.asset(
+                              index == 0
+                                  ? "assets/images/sun.svg"
+                                  : index == 1
+                                  ? "assets/images/cloudy.svg"
+                                  : "assets/images/cloud (1).svg",
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                  const SizedBox(height: 16),
+                  ResumeButton(
+                    buttonText: "Back to session",
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RootBottomNav(),
+                        ),
+                        (route) => false,
+                      );
+                    },
                   ),
                 ],
               ),
-              SizedBox(height: 10),
-              Text(
-                "Click how you feel:",
-                style: GoogleFonts.urbanist(
-                  fontSize: 14,
-                  color: Colors.white.withOpacity(0.9),
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.5,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.buttonpink),
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset("assets/images/sun.svg"),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.buttonpink),
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset("assets/images/cloudy.svg"),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.buttonpink),
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset("assets/images/cloud (1).svg"),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              Text(
-                "Click how you feel:",
-                style: GoogleFonts.urbanist(
-                  fontSize: 14,
-                  color: Colors.white.withOpacity(0.9),
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.5,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.buttonpink),
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset("assets/images/sun.svg"),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.buttonpink),
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset("assets/images/cloudy.svg"),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColors.buttonpink),
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset("assets/images/cloud (1).svg"),
-                    ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 16),
-              ResumeButton(
-                buttonText: "Back to session",
-                onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (context) => RootBottomNav()),
-                    (route) => false,
-                  );
-                },
-              ),
-            ],
-          ),
+            );
+          },
         );
       },
     );

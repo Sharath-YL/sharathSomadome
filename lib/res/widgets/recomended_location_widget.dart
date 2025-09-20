@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
 import 'package:somadome_p/utis/routes/routename.dart';
 import 'package:somadome_p/views/IndexScreens/home/view_more_screens.dart';
 import 'location_card.dart';
 
-class RecommendedLocationsWidget extends StatelessWidget { 
-  final String? title; 
-  final String? subtile; 
+class RecommendedLocationsWidget extends StatelessWidget {
+  final String? title;
+  final String? subtile;
   final VoidCallback? ontap;
   const RecommendedLocationsWidget({
-    this.title, 
-    this.subtile, 
+    this.title,
+    this.subtile,
     this.ontap,
-    
-    super.key});
+
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,29 +23,32 @@ class RecommendedLocationsWidget extends StatelessWidget {
       {
         'imageAsset': 'assets/images/churuch.png',
         'discount': '50% off',
-        'name': 'Disney Castle',
+        'name': 'Location Name',
         'zip': '5343355',
         'location': 'California',
         'rating': '4.6 (2343)',
-        'price': '\$90/45min',
+        'price': '\$90',
+        'time':'45mins'
       },
       {
         'imageAsset': 'assets/images/tree.jpg',
         'discount': '25% off',
-        'name': 'Palm Beach',
+        'name': 'Location Name',
         'zip': '5343355',
         'location': 'California',
         'rating': '4.7 (980)',
-        'price': '\$120/60min',
+        'price': '\$120',
+          'time':'45mins'
       },
       {
         'imageAsset': 'assets/images/churuch.png',
         'discount': '10% off',
-        'name': 'Mountain View',
+        'name': 'Location Name',
         'zip': '5343355',
         'location': 'California',
         'rating': '4.5 (750)',
-        'price': '\$70/30min',
+        'price': '\$70',
+          'time':'45mins'
       },
     ];
 
@@ -54,9 +59,9 @@ class RecommendedLocationsWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-             Text(
-              title??"",
-              style: TextStyle(
+            Text(
+              title ?? "",
+              style: GoogleFonts.urbanist(
                 color: Colors.white,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
@@ -64,12 +69,10 @@ class RecommendedLocationsWidget extends StatelessWidget {
             ),
             GestureDetector(
               onTap: ontap,
-              
 
-              
-              child:  Text(
-                subtile??"",
-                style: TextStyle(
+              child: Text(
+                subtile ?? "",
+                style: GoogleFonts.urbanist(
                   color: AppColors.forgetpasswordcolor,
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
@@ -96,7 +99,8 @@ class RecommendedLocationsWidget extends StatelessWidget {
                     zip: loc['zip']!,
                     location: loc['location']!,
                     rating: loc['rating']!,
-                    price: loc['price']!,
+                    price: loc['price']!, 
+                    time: loc['time']!,
                   ),
                 ),
               ),
@@ -160,7 +164,7 @@ class RecommendedLocationsWidget extends StatelessWidget {
 //             children: [
 //               const Text(
 //                 "Recommended Locations",
-//                 style: TextStyle(
+//                 style: GoogleFonts.urbanist(
 //                   color: Colors.white,
 //                   fontWeight: FontWeight.bold,
 //                   fontSize: 18,
@@ -177,7 +181,7 @@ class RecommendedLocationsWidget extends StatelessWidget {
 //                 },
 //                 child: const Text(
 //                   "View More",
-//                   style: TextStyle(color: Colors.blueAccent),
+//                   style: GoogleFonts.urbanist(color: Colors.blueAccent),
 //                 ),
 //               ),
 //             ],

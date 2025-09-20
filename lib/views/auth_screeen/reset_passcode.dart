@@ -21,7 +21,7 @@ class _ResetPasscodeState extends State<ResetPasscode> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration( gradient: AppColors.backgroundgradient),
+      decoration: BoxDecoration( gradient: AppColors.scaffoldColor),
       child: Scaffold(
         backgroundColor: Colors.transparent,
       
@@ -39,7 +39,7 @@ class _ResetPasscodeState extends State<ResetPasscode> {
         )),
       
         body: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(15  ),
           child: SingleChildScrollView(
             physics: ScrollPhysics(),
             child: Column(
@@ -67,12 +67,12 @@ class _ResetPasscodeState extends State<ResetPasscode> {
                 SizedBox(height: 15.0.h),
                 AuthTextField(
                   hintText: "Password",
-                  prefixIcon: Icons.remove_red_eye,
+                  suffixIcon: Icons.remove_red_eye,
                 ),
                 SizedBox(height: 15.0.h),
                 AuthTextField(
                   hintText: "Confirm password",
-                  prefixIcon: Icons.remove_red_eye,
+                  suffixIcon: Icons.remove_red_eye,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -135,7 +135,7 @@ class _ResetPasscodeState extends State<ResetPasscode> {
       
                 SizedBox(height: 20),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: ResumeButton(
                     buttonText: "Reset Password",
                     onPressed: () async {

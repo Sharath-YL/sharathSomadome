@@ -52,7 +52,7 @@ class SocialButton extends StatelessWidget {
       onTap: onPressed,
       borderRadius: BorderRadius.circular(12),
       child: Container(
-        height: 52,
+        height: 55,
         decoration: BoxDecoration(
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(12),

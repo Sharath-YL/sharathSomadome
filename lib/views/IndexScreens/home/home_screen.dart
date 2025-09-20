@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(gradient: AppColors.backgroundgradient),
+      decoration: BoxDecoration(gradient: AppColors.scaffoldColor),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(

@@ -40,112 +40,114 @@ class _PaymentmethodscreenState extends State<Paymentmethodscreen> {
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
           physics: ScrollPhysics(),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    "Credit or Debit Card",
-                    style: GoogleFonts.urbanist(
-                      color: AppColors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 0.4,
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      "Credit or Debit Card",
+                      style: GoogleFonts.urbanist(
+                        color: AppColors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 0.4,
+                      ),
                     ),
-                  ),
-                  Spacer(),
-                  Text(
-                    "Add New",
-                    style: GoogleFonts.urbanist(
-                      letterSpacing: 0.4,
-                      color: AppColors.forgetpasswordcolor,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
+                    Spacer(),
+                    Text(
+                      "Add New",
+                      style: GoogleFonts.urbanist(
+                        letterSpacing: 0.4,
+                        color: AppColors.forgetpasswordcolor,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10.h),
-              PaymentInformationCard(
-                imagePath: "assets/images/visa.png",
-                title: "Visa xxxx 8976",
-                subtitle: "Expire on 10/16",
-                isSelected: selectedindex == 0,
-                onTap: () {
-                  setState(() {
-                    selectedindex = 0;
-                  });
-                },
-              ),
-              PaymentInformationCard(
-                imagePath: "assets/images/mastercard.jpeg",
-                title: "Mastercard xxxx 8976",
-                subtitle: "Expires on 10/26",
-                isSelected: selectedindex == 1,
-                onTap: () {
-                  setState(() {
-                    selectedindex = 1;
-                  });
-                },
-              ),
-
-              SizedBox(height: 20),
-
-              Text(
-                "Other payment",
-                style: GoogleFonts.urbanist(
-                  color: AppColors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0.4,
+                  ],
                 ),
-              ),
-              SizedBox(height: 10.h),
-              PaymentInformationCard(
-                imagePath: "assets/images/PAYPAL.png",
-                title: "PAYPAL",
-                subtitle: "frg****@gmail.com",
-                isSelected: selectedindex == 2,
-                onTap: () {
-                  setState(() {
-                    selectedindex = 2;
-                  });
-                },
-              ),
-              SizedBox(height: 10.h),
-              PaymentInformationCard(
-                imagePath: "assets/images/Applepay.png",
-                title: "Apple Pay",
-                subtitle: "frg****@gmail.com",
-                isSelected: selectedindex == 3,
-                onTap: () {
-                  setState(() {
-                    selectedindex = 3;
-                  });
-                },
-              ),
-              SizedBox(height: 10.h),
-              PaymentInformationCard(
-                imagePath: "assets/images/gpay.png",
-                title: "Google Pay",
-                subtitle: "frg****@gmail.com",
-                isSelected: selectedindex == 4,
-                onTap: () {
-                  setState(() {
-                    selectedindex = 4;
-                  });
-                },
-              ),
-              SizedBox(height: 10.h),
-              ResumeButton(
-                buttonText: "Select",
-                onPressed: () {
-                  Navigator.pushNamed(context, RoutesName.paymentscreen);
-                },
-              ),
-            ],
+                SizedBox(height: 10.h),
+                PaymentInformationCard(
+                  imagePath: "assets/images/visa.png",
+                  title: "Visa xxxx 8976",
+                  subtitle: "Expire on 10/16",
+                  isSelected: selectedindex == 0,
+                  onTap: () {
+                    setState(() {
+                      selectedindex = 0;
+                    });
+                  },
+                ),
+                PaymentInformationCard(
+                  imagePath: "assets/images/mastercard.jpeg",
+                  title: "Mastercard xxxx 8976",
+                  subtitle: "Expires on 10/26",
+                  isSelected: selectedindex == 1,
+                  onTap: () {
+                    setState(() {
+                      selectedindex = 1;
+                    });
+                  },
+                ),
+            
+                SizedBox(height: 20),
+            
+                Text(
+                  "Other payment",
+                  style: GoogleFonts.urbanist(
+                    color: AppColors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 0.4,
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                PaymentInformationCard(
+                  imagePath: "assets/images/PAYPAL.png",
+                  title: "PAYPAL",
+                  subtitle: "frg****@gmail.com",
+                  isSelected: selectedindex == 2,
+                  onTap: () {
+                    setState(() {
+                      selectedindex = 2;
+                    });
+                  },
+                ),
+                SizedBox(height: 10.h),
+                PaymentInformationCard(
+                  imagePath: "assets/images/Applepay.png",
+                  title: "Apple Pay",
+                  subtitle: "frg****@gmail.com",
+                  isSelected: selectedindex == 3,
+                  onTap: () {
+                    setState(() {
+                      selectedindex = 3;
+                    });
+                  },
+                ),
+                SizedBox(height: 10.h),
+                PaymentInformationCard(
+                  imagePath: "assets/images/gpay.png",
+                  title: "Google Pay",
+                  subtitle: "frg****@gmail.com",
+                  isSelected: selectedindex == 4,
+                  onTap: () {
+                    setState(() {
+                      selectedindex = 4;
+                    });
+                  },
+                ),
+                SizedBox(height: 10.h),
+                ResumeButton(
+                  buttonText: "Select",
+                  onPressed: () {
+                    Navigator.pushNamed(context, RoutesName.paymentscreen);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

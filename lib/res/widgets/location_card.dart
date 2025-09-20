@@ -11,7 +11,8 @@ class LocationCard extends StatelessWidget {
   final String location;
   final String rating;
   final String price;
-  final VoidCallback? ontap;
+  final VoidCallback? ontap; 
+  final String time;
 
   const LocationCard({
     super.key,
@@ -21,7 +22,8 @@ class LocationCard extends StatelessWidget {
     required this.zip,
     required this.location,
     required this.rating,
-    required this.price,
+    required this.price, 
+    required this.time,
     this.ontap,
   });
 
@@ -33,7 +35,7 @@ class LocationCard extends StatelessWidget {
         // Card with background image, discount, and heart icon
         InkWell(
           onTap: () {
-            Navigator.pushNamed(context, RoutesName.pastorderscreen);
+            Navigator.pushNamed(context, RoutesName.upcomingdescriptionscren);
           },
           child: Container(
             width: 240,
@@ -45,7 +47,7 @@ class LocationCard extends StatelessWidget {
                     FadeInImage(
                       placeholder: const AssetImage(
                         'assets/images/churuch.png',
-                      ), // Use existing demo1.png as placeholder
+                      ), 
                       image: AssetImage(imageAsset),
                       fit: BoxFit.cover,
                     ).image,
@@ -72,7 +74,7 @@ class LocationCard extends StatelessWidget {
                     ),
                     child: Text(
                       discount,
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.urbanist(
                         color: Colors.black,
                         fontSize: 12,
                       ),
@@ -95,18 +97,19 @@ class LocationCard extends StatelessWidget {
         ),
         // Details below the card
         Container(
-          width: 220,
+          width: 240,
           padding: const EdgeInsets.only(top: 8.0, left: 4.0, right: 4.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Name
+              
               Text(
                 name,
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.urbanist(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
-                  fontSize: 14,
+                  fontSize: 16,
+                  letterSpacing: 0.4
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -122,11 +125,13 @@ class LocationCard extends StatelessWidget {
                   const SizedBox(width: 4),
                   Expanded(
                     child: Text(
-                      '$zip, $location', // Comma-separated as per image
-                      style: GoogleFonts.poppins(
+                      '$zip, $location', 
+                      style: GoogleFonts.urbanist(
                         color: AppColors.white.withOpacity(0.8),
-                        fontSize: 12,
-                        decoration: TextDecoration.underline,
+                        fontSize: 14,
+                        // decoration: TextDecoration.underline,
+                        letterSpacing: 0.4
+
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -134,26 +139,44 @@ class LocationCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 6),
-              // Price and Rating Row
+              // Price and Rating RowK 
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
+                 Row( 
+                  children: [ 
+                     Text(
                     price,
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
+                    style: GoogleFonts.urbanist(
+                      color: AppColors.forgetpasswordcolor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500, 
+                      letterSpacing: 0.4
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),
+                  Text(
+                   "/${time}",
+                    style: GoogleFonts.urbanist(
+                      color: AppColors.forgetpasswordcolor,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500, 
+                      letterSpacing: 0.4
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+
+
+                  ],
+                 ),
+                 Spacer(),
                   Row(
                     children: [
-                      const Icon(Icons.star, color: AppColors.white, size: 14),
+                      const Icon(Icons.star_border, color: AppColors.white, size: 14),
                       const SizedBox(width: 2),
                       Text(
                         rating,
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.urbanist(
                           color: AppColors.white,
                           fontSize: 12,
                         ),
@@ -226,7 +249,7 @@ class LocationCard extends StatelessWidget {
 //                   ),
 //                   child: Text(
 //                     discount,
-//                     style: const GoogleFonts.poppins(color: Colors.white, fontSize: 12),
+//                     style: const GoogleFonts.urbanist(color: Colors.white, fontSize: 12),
 //                   ),
 //                 ),
 //               ),
@@ -248,7 +271,7 @@ class LocationCard extends StatelessWidget {
 //                 // Full Location Name
 //                 Text(
 //                   locationName,
-//                   style: const GoogleFonts.poppins(
+//                   style: const GoogleFonts.urbanist(
 //                     color: Colors.white,
 //                     fontWeight: FontWeight.bold,
 //                     fontSize: 14,
@@ -264,7 +287,7 @@ class LocationCard extends StatelessWidget {
 //                     Expanded(
 //                       child: Text(
 //                         "$locationCode $locationName",
-//                         style: const GoogleFonts.poppins(
+//                         style: const GoogleFonts.urbanist(
 //                           color: Colors.white70,
 //                           fontSize: 12,
 //                         ),
@@ -281,7 +304,7 @@ class LocationCard extends StatelessWidget {
 //                   children: [
 //                     Text(
 //                       price,
-//                       style: const GoogleFonts.poppins(
+//                       style: const GoogleFonts.urbanist(
 //                         color: Colors.white,
 //                         fontSize: 14,
 //                         fontWeight: FontWeight.bold,
@@ -293,7 +316,7 @@ class LocationCard extends StatelessWidget {
 //                         const SizedBox(width: 2),
 //                         Text(
 //                           rating,
-//                           style: const GoogleFonts.poppins(
+//                           style: const GoogleFonts.urbanist(
 //                             color: Colors.white,
 //                             fontSize: 12,
 //                           ),

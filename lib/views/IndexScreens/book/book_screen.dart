@@ -89,10 +89,7 @@ class BookScreen extends StatelessWidget {
                   title: "Where you have been",
                   subtile: "View More",
                   ontap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => UpcomingScreen()),
-                    );
+                    Navigator.pushNamed(context, RoutesName.recommandation);
                   },
                 ),
               ],
@@ -147,7 +144,7 @@ class HomeBooking extends StatelessWidget {
 
           Container(
             width: double.infinity,
-            height: 135,
+            height: 142,
             decoration: BoxDecoration(
               color: AppColors.coralcolor,
               borderRadius: BorderRadius.circular(20),

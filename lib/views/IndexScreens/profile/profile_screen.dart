@@ -13,6 +13,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,8 +52,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 }
 
-class SettingsWidget extends StatelessWidget {
+class SettingsWidget extends StatefulWidget {
+
   const SettingsWidget({super.key});
+
+  @override
+  State<SettingsWidget> createState() => _SettingsWidgetState();
+}
+
+class _SettingsWidgetState extends State<SettingsWidget> {
+    bool _isLocationEnabled = false; 
+  bool _isDarkThemeEnabled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -110,9 +120,13 @@ class SettingsWidget extends StatelessWidget {
             onTap: () {},
           ),
           Divider(),
-          settingsTile(icon: Icons.privacy_tip, title: "Privacy", onTap: () { 
-            Navigator.pushNamed(context, RoutesName.privacypolicyscreen);
-          }),
+          settingsTile(
+            icon: Icons.privacy_tip,
+            title: "Privacy",
+            onTap: () {
+              Navigator.pushNamed(context, RoutesName.privacypolicyscreen);
+            },
+          ),
           Divider(),
           settingsTile(
             icon: Icons.notifications_none,
@@ -121,7 +135,7 @@ class SettingsWidget extends StatelessWidget {
               Navigator.pushNamed(context, RoutesName.pushnotificatinscreen);
             },
           ),
-             Divider(),
+          Divider(),
           settingsTile(
             icon: Icons.account_box,
             title: "About Us",
@@ -145,16 +159,28 @@ class SettingsWidget extends StatelessWidget {
           ),
           Divider(),
           settingsTile(
-            icon: Icons.location_on_outlined,
-            title: "Location",
-            isSwitch: true,
-          ),
+              icon: Icons.location_on_outlined,
+              title: "Location",
+              isSwitch: true,
+              switchValue: _isLocationEnabled,
+              onSwitchChanged: (bool value) {
+                setState(() {
+                  _isLocationEnabled = value; 
+                });
+              },
+            ),
           Divider(),
-          settingsTile(
-            icon: Icons.dark_mode_outlined,
-            title: "Dark theme",
-            isSwitch: true,
-          ),
+        settingsTile(
+              icon: Icons.dark_mode_outlined,
+              title: "Dark theme",
+              isSwitch: true,
+              switchValue: _isDarkThemeEnabled,
+              onSwitchChanged: (bool value) {
+                setState(() {
+                  _isDarkThemeEnabled = value; 
+                });
+              },
+            ),
         ],
       ),
     );
@@ -179,7 +205,9 @@ class SettingsWidget extends StatelessWidget {
     required String title,
     String? value,
     bool isSwitch = false,
+    bool switchValue = false,
     VoidCallback? onTap,
+    ValueChanged<bool>? onSwitchChanged,
   }) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 6.h),
@@ -215,8 +243,8 @@ class SettingsWidget extends StatelessWidget {
               Icon(Icons.arrow_forward_ios, color: Colors.white, size: 14.sp),
             if (isSwitch)
               Switch(
-                value: true,
-                onChanged: (val) {},
+                value: switchValue,
+                onChanged: onSwitchChanged,
                 activeColor: AppColors.forgetpasswordcolor,
               ),
           ],

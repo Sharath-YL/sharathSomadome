@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
 import 'package:somadome_p/res/widgets/customresumebutton.dart';
@@ -43,51 +44,53 @@ class _PaymentscreenState extends State<Paymentscreen> {
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
           physics: ScrollPhysics(),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              buildStepper(),
-              SizedBox(height: 10),
-              buildReservationCard(),
-              SizedBox(height: 10.h),
-              PaymentInformation(),
-              SizedBox(height: 10.h),
-              Cuponwidget(),
-              SizedBox(height: 10.h),
-              Text(
-                "You have 3 Coupons",
-                style: GoogleFonts.urbanist(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 16,
-                  color: AppColors.forgetpasswordcolor,
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                buildStepper(),
+                SizedBox(height: 10),
+                buildReservationCard(),
+                SizedBox(height: 14.h),
+                PaymentInformation(),
+                SizedBox(height: 14.h),
+                Cuponwidget(),
+                SizedBox(height: 14.h),
+                Text(
+                  "You have 3 Coupons",
+                  style: GoogleFonts.urbanist(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                    color: AppColors.forgetpasswordcolor,
+                  ),
                 ),
-              ),
-              SizedBox(height: 10.h),
-              Text(
-                "Summary of Charge ",
-                style: GoogleFonts.urbanist(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 18,
-                  color: AppColors.white,
+                SizedBox(height: 14.h),
+                Text(
+                  "Summary of Charge ",
+                  style: GoogleFonts.urbanist(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18,
+                    color: AppColors.white,
+                  ),
                 ),
-              ),
-              SizedBox(height: 10),
-              Summarycard(),
-              SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.sp),
-                child: ResumeButton(
-                  buttonText: "Pay with visa ",
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      RoutesName.paymentcompletescreen,
-                    );
-                  },
+                SizedBox(height: 10),
+                Summarycard(),
+                SizedBox(height: 20),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                  child: ResumeButton(
+                    buttonText: "Pay with visa ",
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        RoutesName.paymentcompletescreen,
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -108,9 +111,9 @@ class _PaymentscreenState extends State<Paymentscreen> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
-                    'assets/images/palace.png',
+                    'assets/images/811580b69be78e786acdc516ca66f9c8c971f53f.jpg',
                     width: 80,
-                    height: 50,
+                    height: 80,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -121,13 +124,24 @@ class _PaymentscreenState extends State<Paymentscreen> {
                     children: [
                       Text(
                         'Location Name',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.urbanist(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: AppColors.blackcolor,
+                          letterSpacing: 0.4,
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      const SizedBox(height: 2),
+                      Text(
+                        'Somadome',
+                        style: GoogleFonts.urbanist(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.blackcolor.withOpacity(0.4),
+                          letterSpacing: 0.4,
+                        ),
+                      ),
+                      const SizedBox(height: 5),
                       Row(
                         children: [
                           const Icon(
@@ -138,9 +152,10 @@ class _PaymentscreenState extends State<Paymentscreen> {
                           const SizedBox(width: 4),
                           Text(
                             '4.5 miles',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.urbanist(
                               fontSize: 14,
                               color: AppColors.blackcolor,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           const SizedBox(width: 8),
@@ -151,9 +166,10 @@ class _PaymentscreenState extends State<Paymentscreen> {
                           ),
                           Text(
                             '4.3',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.urbanist(
                               fontSize: 14,
                               color: AppColors.blackcolor,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
@@ -168,18 +184,20 @@ class _PaymentscreenState extends State<Paymentscreen> {
               children: [
                 Text(
                   'Check-in',
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.urbanist(
                     fontSize: 14,
                     color: AppColors.blackcolor,
+                    letterSpacing: 0.5,
                   ),
                 ),
                 Spacer(),
                 Text(
                   'Sun, 04 September 2022',
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.urbanist(
                     fontSize: 14,
                     color: AppColors.silverGray,
                     fontWeight: FontWeight.w600,
+                    letterSpacing: 0.5,
                   ),
                 ),
               ],
@@ -189,18 +207,20 @@ class _PaymentscreenState extends State<Paymentscreen> {
               children: [
                 Text(
                   'Check-out',
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.urbanist(
                     fontSize: 14,
                     color: AppColors.blackcolor,
+                    letterSpacing: 0.5,
                   ),
                 ),
                 Spacer(),
                 Text(
                   'Tue, 06 September 2022',
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.urbanist(
                     fontSize: 14,
                     color: AppColors.silverGray,
                     fontWeight: FontWeight.w600,
+                    letterSpacing: 0.5,
                   ),
                 ),
               ],
@@ -240,20 +260,34 @@ class _PaymentscreenState extends State<Paymentscreen> {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        CircleAvatar(
-          radius: 12,
-          backgroundColor:
-              useWhiteBg
-                  ? Colors.white
-                  : isActive
-                  ? Colors.cyanAccent
-                  : Colors.cyanAccent.withOpacity(0.3),
-          child: Text(
-            step,
-            style: GoogleFonts.poppins(
-              fontSize: 12,
-              color: useWhiteBg ? AppColors.backgroundcolor : Colors.white,
-              fontWeight: FontWeight.bold,
+        Container(
+          width: 24,
+          height: 24,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              color:
+                  isActive ? Colors.transparent : Colors.grey.withOpacity(0.6),
+              width: 1.0,
+            ),
+            color:
+                useWhiteBg
+                    ? Colors.white
+                    : isActive
+                    ? Colors.transparent
+                    : Colors.transparent,
+          ),
+          child: Center(
+            child: Text(
+              step,
+              style: GoogleFonts.urbanist(
+                fontSize: 12,
+                color:
+                    useWhiteBg
+                        ? AppColors.forgetpasswordcolor
+                        : AppColors.forgetpasswordcolor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
@@ -296,7 +330,7 @@ class PaymentInformation extends StatelessWidget {
               style: GoogleFonts.urbanist(
                 color: AppColors.white,
                 fontWeight: FontWeight.w700,
-                fontSize: 15.sp,
+                fontSize: 16.sp, 
               ),
             ),
             GestureDetector(
@@ -307,8 +341,9 @@ class PaymentInformation extends StatelessWidget {
                 "Change",
                 style: GoogleFonts.urbanist(
                   color: AppColors.forgetpasswordcolor,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                   fontSize: 14.sp,
+
                 ),
               ),
             ),
@@ -320,7 +355,7 @@ class PaymentInformation extends StatelessWidget {
           padding: EdgeInsets.all(12.w),
           decoration: BoxDecoration(
             border: Border.all(color: AppColors.white.withOpacity(1)),
-            borderRadius: BorderRadius.circular(12.r),
+            borderRadius: BorderRadius.circular(15.r),
           ),
           child: Row(
             children: [
@@ -332,7 +367,7 @@ class PaymentInformation extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(8.r),
                 ),
-                child: Image.asset("assets/images/visa.png", fit: BoxFit.fill),
+                child: SvgPicture.asset("assets/images/Visa Inc. svg.svg", fit: BoxFit.contain),
               ),
               SizedBox(width: 12.w),
 
@@ -345,6 +380,7 @@ class PaymentInformation extends StatelessWidget {
                       fontSize: 14.sp,
                       color: AppColors.white,
                       fontWeight: FontWeight.w700,
+                      letterSpacing: 0.4
                     ),
                   ),
                   SizedBox(height: 4.h),
@@ -353,7 +389,8 @@ class PaymentInformation extends StatelessWidget {
                     style: GoogleFonts.urbanist(
                       fontSize: 12.sp,
                       color: Colors.white.withOpacity(0.7),
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w500, 
+                      letterSpacing: 0.4
                     ),
                   ),
                 ],
@@ -379,7 +416,7 @@ class Cuponwidget extends StatelessWidget {
           "Coupon",
           style: GoogleFonts.urbanist(
             color: AppColors.white,
-            fontSize: 18,
+            fontSize: 16,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -393,11 +430,11 @@ class Cuponwidget extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.discount_outlined, color: AppColors.white),
+                icon: SvgPicture.asset("assets/images/ticket-discount.svg"),
               ),
               Text(
                 "Coupon Code ",
-                style: GoogleFonts.urbanist(color: AppColors.white),
+                style: GoogleFonts.urbanist(color: AppColors.white, fontWeight: FontWeight.w400, letterSpacing: 0.4),
               ),
               SizedBox(width: 150.sp),
               GestureDetector(
@@ -407,6 +444,8 @@ class Cuponwidget extends StatelessWidget {
                 child: Text(
                   "Add",
                   style: GoogleFonts.urbanist(
+                    letterSpacing: 0.4, 
+                    fontWeight: FontWeight.w700,
                     color: AppColors.forgetpasswordcolor,
                   ),
                 ),
@@ -438,7 +477,7 @@ class Summarycard extends StatelessWidget {
             ),
             Spacer(),
             Text(
-              "\$180",
+              "\$180.89",
               style: GoogleFonts.urbanist(
                 color: AppColors.white,
                 fontSize: 15,
@@ -460,7 +499,7 @@ class Summarycard extends StatelessWidget {
             ),
             Spacer(),
             Text(
-              "\$23",
+              "\$35.67",
               style: GoogleFonts.urbanist(
                 color: AppColors.white,
                 fontSize: 15,

@@ -32,7 +32,7 @@ class _CompletereservescreenState extends State<Completereservescreen> {
                   centerTitle: true,
                   title: Text(
                     "Reserve",
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.urbanist(
                       color: AppColors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
@@ -64,8 +64,11 @@ class _CompletereservescreenState extends State<Completereservescreen> {
                   padding: EdgeInsets.symmetric(horizontal: 7),
                   child: Text(
                     "Location messages",
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w500,
+                    style: GoogleFonts.urbanist(
+                      fontWeight: FontWeight.w700, 
+                      letterSpacing: 0.4, 
+
+                      fontSize: 16,
                       color: AppColors.white.withOpacity(0.6),
                     ),
                   ),
@@ -75,10 +78,11 @@ class _CompletereservescreenState extends State<Completereservescreen> {
                   padding: EdgeInsets.symmetric(horizontal: 7),
                   child: Text(
                     "Customer should review government travel guidence to confirm eligibility and requirements for travel ,See travel guidence Somadome.com",
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.urbanist(
                       fontWeight: FontWeight.w600,
-                      fontSize: 13,
+                      fontSize: 14,
                       color: AppColors.white.withOpacity(0.8),
+                      letterSpacing: 0.5
                     ),
                     textAlign: TextAlign.justify,
                   ),
@@ -88,13 +92,16 @@ class _CompletereservescreenState extends State<Completereservescreen> {
                   padding: EdgeInsets.symmetric(horizontal: 5),
                   child: Text(
                     "Location Policy",
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.urbanist(
                       fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      letterSpacing: 0.4,
                       color: AppColors.white.withOpacity(1),
                     ),
                   ),
                 ),
                 paymetdetails(),
+                SizedBox(height: 15,)
               ],
             ),
           ),
@@ -111,16 +118,9 @@ class _CompletereservescreenState extends State<Completereservescreen> {
         children: [
           buildStepCircle("1", "Order", isActive: true, useWhiteBg: true),
           buildStepLine(isWhite: true),
-          Expanded(
-            child: buildStepCircle(
-              "2",
-              "Review",
-              isActive: true,
-              useWhiteBg: true,
-            ),
-          ),
+          buildStepCircle("2", "Review", isActive: true, useWhiteBg: true),
           buildStepLine(isWhite: false),
-          Expanded(child: buildStepCircle("3", "Payment", isActive: false)),
+          buildStepCircle("3", "Payment", isActive: false),
         ],
       ),
     );
@@ -135,28 +135,42 @@ class _CompletereservescreenState extends State<Completereservescreen> {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        CircleAvatar(
-          radius: 12,
-          backgroundColor:
-              useWhiteBg
-                  ? Colors.white
-                  : isActive
-                  ? Colors.cyanAccent
-                  : Colors.cyanAccent.withOpacity(0.3),
-          child: Text(
-            step,
-            style: GoogleFonts.poppins(
-              fontSize: 12,
-              color: useWhiteBg ? AppColors.backgroundcolor : Colors.white,
-              fontWeight: FontWeight.bold,
+        Container(
+          width: 24,
+          height: 24,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              color:
+                  isActive ? Colors.transparent : Colors.grey.withOpacity(0.6),
+              width: 1.0,
+            ),
+            color:
+                useWhiteBg
+                    ? Colors.white
+                    : isActive
+                    ? Colors.transparent
+                    : Colors.transparent,
+          ),
+          child: Center(
+            child: Text(
+              step,
+              style: GoogleFonts.urbanist(
+                fontSize: 14,
+                color:
+                    useWhiteBg
+                        ? AppColors.forgetpasswordcolor
+                        : AppColors.forgetpasswordcolor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
         const SizedBox(width: 4),
         Text(
           label,
-          style: GoogleFonts.poppins(
-            fontSize: 12,
+          style: GoogleFonts.urbanist(
+            fontSize: 14,
             color: isActive ? Colors.white : Colors.cyanAccent.withOpacity(0.5),
             fontWeight: FontWeight.w500,
           ),
@@ -188,9 +202,9 @@ class _CompletereservescreenState extends State<Completereservescreen> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
-                    'assets/images/palace.png',
+                    'assets/images/811580b69be78e786acdc516ca66f9c8c971f53f.jpg',
                     width: 80,
-                    height: 50,
+                    height: 80,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -201,13 +215,24 @@ class _CompletereservescreenState extends State<Completereservescreen> {
                     children: [
                       Text(
                         'Location Name',
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.urbanist(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                           color: AppColors.blackcolor,
+                          letterSpacing: 0.4,
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      const SizedBox(height: 2),
+                      Text(
+                        'Somadome',
+                        style: GoogleFonts.urbanist(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.blackcolor.withOpacity(0.4),
+                          letterSpacing: 0.4,
+                        ),
+                      ),
+                      const SizedBox(height: 5),
                       Row(
                         children: [
                           const Icon(
@@ -218,9 +243,10 @@ class _CompletereservescreenState extends State<Completereservescreen> {
                           const SizedBox(width: 4),
                           Text(
                             '4.5 miles',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.urbanist(
                               fontSize: 14,
                               color: AppColors.blackcolor,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           const SizedBox(width: 8),
@@ -231,9 +257,10 @@ class _CompletereservescreenState extends State<Completereservescreen> {
                           ),
                           Text(
                             '4.3',
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.urbanist(
                               fontSize: 14,
                               color: AppColors.blackcolor,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
@@ -248,18 +275,20 @@ class _CompletereservescreenState extends State<Completereservescreen> {
               children: [
                 Text(
                   'Check-in',
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.urbanist(
                     fontSize: 14,
                     color: AppColors.blackcolor,
+                    letterSpacing: 0.5,
                   ),
                 ),
                 Spacer(),
                 Text(
                   'Sun, 04 September 2022',
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.urbanist(
                     fontSize: 14,
                     color: AppColors.silverGray,
                     fontWeight: FontWeight.w600,
+                    letterSpacing: 0.5,
                   ),
                 ),
               ],
@@ -269,18 +298,20 @@ class _CompletereservescreenState extends State<Completereservescreen> {
               children: [
                 Text(
                   'Check-out',
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.urbanist(
                     fontSize: 14,
                     color: AppColors.blackcolor,
+                         letterSpacing: 0.5,
                   ),
                 ),
                 Spacer(),
                 Text(
                   'Tue, 06 September 2022',
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.urbanist(
                     fontSize: 14,
                     color: AppColors.silverGray,
                     fontWeight: FontWeight.w600,
+                         letterSpacing: 0.5,
                   ),
                 ),
               ],
@@ -307,19 +338,21 @@ class _CompletereservescreenState extends State<Completereservescreen> {
             children: [
               Text(
                 'Guest name',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.urbanist(
                   fontSize: 14,
                   color: AppColors.white,
-                  fontWeight: FontWeight.w300,
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 0.4
                 ),
               ),
               SizedBox(height: 5.h),
 
               Text(
                 'Sarah Attia',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.urbanist(
                   fontSize: 14,
                   color: Colors.white,
+                   letterSpacing: 0.4,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -344,20 +377,22 @@ class _CompletereservescreenState extends State<Completereservescreen> {
             children: [
               Text(
                 'Special Request ',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.urbanist(
                   fontSize: 14,
                   color: AppColors.white,
-                  fontWeight: FontWeight.w300,
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 0.4
                 ),
               ),
               SizedBox(height: 5.h),
 
               Text(
                 'Double Session',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.urbanist(
                   fontSize: 14,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
+                   letterSpacing: 0.4
                 ),
               ),
             ],
@@ -380,7 +415,7 @@ class _CompletereservescreenState extends State<Completereservescreen> {
           padding: const EdgeInsets.all(15.0),
           child: Text(
             "Please double check your order before proceding to payment",
-            style: GoogleFonts.poppins(color: AppColors.blackcolor),
+            style: GoogleFonts.urbanist(color: AppColors.blackcolor, fontSize: 14,letterSpacing: 0.4),
           ),
         ),
       ),
@@ -401,7 +436,7 @@ class _CompletereservescreenState extends State<Completereservescreen> {
                 children: [
                   Text(
                     '\$100.89',
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.urbanist(
                       color: Colors.cyanAccent,
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
@@ -418,7 +453,7 @@ class _CompletereservescreenState extends State<Completereservescreen> {
               SizedBox(height: 2),
               Text(
                 'Get 7.567 points',
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.urbanist(
                   fontSize: 12,
                   color: Colors.pinkAccent,
                   fontWeight: FontWeight.w500,
@@ -440,7 +475,7 @@ class _CompletereservescreenState extends State<Completereservescreen> {
             },
             child: Text(
               'Continue',
-              style: GoogleFonts.poppins(
+              style: GoogleFonts.urbanist(
                 color: Colors.white,
                 fontSize: 14,
                 fontWeight: FontWeight.w600,

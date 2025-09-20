@@ -218,9 +218,10 @@ class _OnboardPage extends StatelessWidget {
               title,
               style: GoogleFonts.urbanist(
                 color: AppColors.white,
-                fontSize: 28,
+                fontSize: 32,
                 fontWeight: FontWeight.bold,
                 height: 1.25,
+
               ),
             ),
             const SizedBox(height: 10),
@@ -228,8 +229,9 @@ class _OnboardPage extends StatelessWidget {
               subtitle,
               style: GoogleFonts.urbanist(
                 color: AppColors.white.withOpacity(0.7),
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                fontWeight: FontWeight.bold, 
+                letterSpacing: 0.4
               ),
             ),
           ],
@@ -254,7 +256,7 @@ class _SegmentedIndicator extends StatelessWidget {
           duration: const Duration(milliseconds: 250),
           margin: EdgeInsets.only(left: i == 0 ? 0 : 6),
           height: 6,
-          width: active ? 25 : 25,
+          width: active ? 25 : 32,
           decoration: BoxDecoration(
             color: active ? AppColors.white : AppColors.linesegmentcolor,
             borderRadius: BorderRadius.circular(6),

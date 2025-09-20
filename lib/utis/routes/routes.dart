@@ -44,7 +44,9 @@ import 'package:somadome_p/views/sessionhelpers/sessionhelperscreen.dart';
 import 'package:somadome_p/views/sessionhelpers/startsessionscreen.dart';
 import 'package:somadome_p/views/splashscreens/splashscreen.dart';
 import 'package:somadome_p/views/vedioplayerscreens/realquickscreen.dart';
-import 'package:somadome_p/views/vedioplayerscreens/vedioplayscreen.dart';
+import 'package:somadome_p/views/vedioplayerscreens/vedioplayscreen.dart'; 
+
+import 'package:somadome_p/utis/exports.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -80,17 +82,19 @@ class Routes {
         return MaterialPageRoute(builder: (context) => ProfileScreen());
       case RoutesName.cancelationscreen:
         return MaterialPageRoute(builder: (context) => Cancelationscreen());
-      case RoutesName.profilepaymentscreen: 
-        return MaterialPageRoute(builder: (context) => ProfilePaymentScreen()); 
-      case RoutesName.realquickscreen: 
-        return MaterialPageRoute(builder: (contxet)=>Realquickscreen()); 
-      case RoutesName.privacypolicyscreen: 
-        return MaterialPageRoute(builder: (context)=>Privacypolicyscreen()); 
-      case RoutesName.aboutusscreen: 
-        return MaterialPageRoute(builder: (context)=>Aboutscreen());
-      case RoutesName.communitydescitpionscreen: 
-        return MaterialPageRoute(builder: (context)=>Communiitydescriptionscreen());
-      case RoutesName.pastorderscreen: 
+      case RoutesName.profilepaymentscreen:
+        return MaterialPageRoute(builder: (context) => ProfilePaymentScreen());
+      case RoutesName.realquickscreen:
+        return MaterialPageRoute(builder: (contxet) => Realquickscreen());
+      case RoutesName.privacypolicyscreen:
+        return MaterialPageRoute(builder: (context) => Privacypolicyscreen());
+      case RoutesName.aboutusscreen:
+        return MaterialPageRoute(builder: (context) => Aboutscreen());
+      case RoutesName.communitydescitpionscreen:
+        return MaterialPageRoute(
+          builder: (context) => Communiitydescriptionscreen(),
+        );
+      case RoutesName.pastorderscreen:
         return MaterialPageRoute(
           builder: (context) => Pastordersessionscreen(),
         );

@@ -128,7 +128,7 @@ class _StartsessionscreenState extends State<Startsessionscreen> {
                 ResumeButton(
                   buttonText: "Begin Session",
                   onPressed: () {
-                    Navigator.pushNamed(context, RoutesName.vedioplayscreen);
+                    Navigator.pushNamed(context, RoutesName.menusessionscreen);
                   },
                 ),
                 SizedBox(height: 30),

@@ -19,75 +19,77 @@ class _OtpscreenState extends State<Otpscreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(gradient: AppColors.backgroundgradient),
+      decoration: const BoxDecoration(gradient: AppColors.scaffoldColor),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 10),
-                IconButton(
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.white,
-                    size: 20,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 10),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                const SizedBox(height: 20),
-
-                Text(
-                  "Verify Account",
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.w600,
+                  const SizedBox(height: 20),
+          
+                  Text(
+                    "Verify Account",
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 6),
-
-                Text(
-                  "Please enter the Verification code sent to your mobile: ${widget.phonenumber} ",
-                  style: GoogleFonts.poppins(
-                    color: Colors.white.withOpacity(0.8),
-                    fontSize: 14,
+                  const SizedBox(height: 6),
+          
+                  Text(
+                    "Please enter the Verification code sent to your mobile: ${widget.phonenumber} ",
+                    style: GoogleFonts.poppins(
+                      color: Colors.white.withOpacity(0.8),
+                      fontSize: 14,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 30),
-                OtpTextField(
-                  textStyle: GoogleFonts.poppins(
-                    color: AppColors.white,
-                    fontWeight: FontWeight.w600,
+                  const SizedBox(height: 30),
+                  OtpTextField(
+                    textStyle: GoogleFonts.poppins(
+                      color: AppColors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    numberOfFields: 5,
+                    borderRadius: BorderRadius.circular(15),
+                    borderColor: AppColors.white,
+                    showFieldAsBox: true,
+                    focusedBorderColor: Colors.white,
+                    borderWidth: 1,
+                    disabledBorderColor: AppColors.white.withOpacity(0.1),
+                    onSubmit: (value) {},
+                    fieldWidth: 53.w,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    autoFocus: true,
                   ),
-                  numberOfFields: 5,
-                  borderRadius: BorderRadius.circular(15),
-                  borderColor: AppColors.white,
-                  showFieldAsBox: true,
-                  focusedBorderColor: Colors.white,
-                  borderWidth: 1,
-                  disabledBorderColor: AppColors.white.withOpacity(0.1),
-                  onSubmit: (value) {},
-                  fieldWidth: 53.w,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  autoFocus: true,
-                ),
-                // Pinput(length: 4),
-                const SizedBox(height: 50),
-                ResumeButton(
-                  buttonText: "continue",
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => RootBottomNav()),
-                    );
-                  },
-                ),
-              ],
+                  // Pinput(length: 4),
+                  const SizedBox(height: 50),
+                  ResumeButton(
+                    buttonText: "continue",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RootBottomNav()),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),

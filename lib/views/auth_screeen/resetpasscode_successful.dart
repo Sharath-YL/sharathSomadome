@@ -26,7 +26,7 @@ class _ResetpasscodeSuccessfulState extends State<ResetpasscodeSuccessful> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(gradient: AppColors.backgroundgradient),
+      decoration: BoxDecoration(gradient: AppColors.scaffoldColor),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -60,7 +60,7 @@ class _ResetpasscodeSuccessfulState extends State<ResetpasscodeSuccessful> {
 
               Text(
                 "password updated!",
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.urbanist(
                   fontWeight: FontWeight.w700,
                   color: Colors.white,
                   fontSize: 22,
@@ -70,7 +70,7 @@ class _ResetpasscodeSuccessfulState extends State<ResetpasscodeSuccessful> {
               SizedBox(height: 10.0.h),
               Text(
                 "your password has been setup \n successfully",
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.urbanist(
                   color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.w500,

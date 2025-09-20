@@ -95,8 +95,11 @@ class _BeginintentionscreenState extends State<Beginintentionscreen> {
                   onTap:
                       selectedIndex != null
                           ? () {
-                            final selected = items[selectedIndex!]; 
-                            Navigator.pushNamed(context, RoutesName.menusessionscreen);
+                            final selected = items[selectedIndex!];
+                            Navigator.pushNamed(
+                              context,
+                              RoutesName.startsessionscreen,
+                            );
                           }
                           : null,
                   child: Opacity(

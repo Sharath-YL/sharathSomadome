@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:somadome_p/res/constatnts/AppColors.dart';
 
@@ -12,7 +13,8 @@ class AuthTextField extends StatelessWidget {
     this.prefixIcon,
     this.validator,
     this.onChanged,
-    this.focusNode
+    this.focusNode,
+    this.suffixIcon,
   });
   final FocusNode? focusNode;
 
@@ -23,10 +25,11 @@ class AuthTextField extends StatelessWidget {
   final IconData? prefixIcon;
   final String? Function(String?)? validator;
   final ValueChanged<String>? onChanged;
+  final IconData? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
-    final borderRadius = BorderRadius.circular(12);
+    final borderRadius = BorderRadius.circular(15.r);
 
     return TextFormField(
       focusNode: focusNode,
@@ -35,17 +38,24 @@ class AuthTextField extends StatelessWidget {
       onChanged: onChanged,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
-      style: GoogleFonts.poppins(color: AppColors.white),
+      style: GoogleFonts.urbanist(color: AppColors.white),
       cursorColor: AppColors.white,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: GoogleFonts.poppins(color: AppColors.white.withOpacity(1)),
-        filled: true,
-        fillColor: AppColors.white.withOpacity(0.06),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
-        prefixIcon: prefixIcon == null
-            ? null
-            : Icon(prefixIcon, color: AppColors.white.withOpacity(0.9)),
+        hintStyle: GoogleFonts.urbanist(color: AppColors.white.withOpacity(0.7)),
+       
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 18,
+        ),
+        prefixIcon:
+            prefixIcon == null
+                ? null
+                : Icon(prefixIcon, color: AppColors.white.withOpacity(0.9)),
+        suffixIcon:
+            suffixIcon == null
+                ? null
+                : Icon(suffixIcon, color: AppColors.white.withOpacity(0.9)),
         enabledBorder: OutlineInputBorder(
           borderRadius: borderRadius,
           borderSide: BorderSide(color: AppColors.white.withOpacity(0.5)),
@@ -67,6 +77,7 @@ class PasswordTextField extends StatefulWidget {
     this.textInputAction,
     this.validator,
     this.onChanged,
+    this.prefixicon,
   });
 
   final TextEditingController? controller;
@@ -74,6 +85,7 @@ class PasswordTextField extends StatefulWidget {
   final TextInputAction? textInputAction;
   final String? Function(String?)? validator;
   final ValueChanged<String>? onChanged;
+  final IconData? prefixicon;
 
   @override
   State<PasswordTextField> createState() => _PasswordTextFieldState();
@@ -92,14 +104,17 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       onChanged: widget.onChanged,
       textInputAction: widget.textInputAction,
       obscureText: _obscure,
-      style: GoogleFonts.poppins(color: AppColors.white),
+      style: GoogleFonts.urbanist(color: AppColors.white),
       cursorColor: AppColors.white,
       decoration: InputDecoration(
         hintText: widget.hintText,
-        hintStyle: GoogleFonts.poppins(color: AppColors.white.withOpacity(1)),
+        hintStyle: GoogleFonts.urbanist(color: AppColors.white.withOpacity(0.7)),
         filled: true,
         fillColor: AppColors.white.withOpacity(0.06),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 18,
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: borderRadius,
           borderSide: BorderSide(color: AppColors.white.withOpacity(0.5)),
@@ -108,8 +123,13 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
           borderRadius: borderRadius,
           borderSide: BorderSide(color: AppColors.white, width: 1.4),
         ),
-        prefixIcon: Icon(Icons.lock_outline,
-            color: AppColors.white.withOpacity(0.9)),
+        prefixIcon:
+            widget.prefixicon == null
+                ? null
+                : Icon(
+                  widget.prefixicon,
+                  color: AppColors.white.withOpacity(0.9),
+                ),
         suffixIcon: IconButton(
           onPressed: () => setState(() => _obscure = !_obscure),
           icon: Icon(

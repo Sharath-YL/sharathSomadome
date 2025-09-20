@@ -70,132 +70,135 @@ class _SeebookingscreenState extends State<Seebookingscreen> {
                   physics: ScrollPhysics(),
                   child: SizedBox(
                     height: MediaQuery.of(context).size.height,
-                    child: Column(
-                      children: [
-                        AppBar(
-                          backgroundColor: Colors.transparent,
-                          automaticallyImplyLeading: false,
-                          leading: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 15),
-                            child: IconButton(
-                              onPressed: () => Navigator.pop(context),
-                              icon: Icon(
-                                Icons.arrow_back_ios,
-                                color: AppColors.white,
-                                size: 15,
+                    child: SafeArea(
+                      child: Column(
+                        children: [
+                          AppBar(
+                            backgroundColor: Colors.transparent,
+                            automaticallyImplyLeading: false,
+                            leading: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 15),
+                              child: IconButton(
+                                onPressed: () => Navigator.pop(context),
+                                icon: Icon(
+                                  Icons.arrow_back_ios,
+                                  color: AppColors.white,
+                                  size: 15,
+                                ),
                               ),
                             ),
+                            title: Text(
+                              'Booking',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.white,
+                              ),
+                            ),
+                            centerTitle: true,
                           ),
-                          title: Text(
-                            'Booking',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
+                          AdvancedSegment(
+                            backgroundColor: AppColors.segmentcolor,
+                            sliderColor: AppColors.backgroundcolor,
+                            itemPadding: const EdgeInsets.symmetric(
+                              horizontal: 35,
+                              vertical: 10,
+                            ),
+                            activeStyle: GoogleFonts.poppins(
                               color: AppColors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            inactiveStyle: GoogleFonts.poppins(
+                              color: AppColors.blackcolor,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            // animationDuration: const Duration(seconds: 2),
+                            segments: {
+                              'Past Orders': 'Past Orders',
+                              'Upcoming': 'Upcoming',
+                            },
+                            controller: _selectedSegment,
+                          ),
+                          SizedBox(height: 5,),
+                          Expanded(
+                            child: Center(
+                              child:
+                                  segment == 'Past Orders'
+                                      ? isLoading
+                                          ? Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'We\'re loading your bookings...',
+                                                style: GoogleFonts.poppins(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 18,
+                                                  color: AppColors.white,
+                                                ),
+                                              ),
+                                              Text(
+                                                'please don\'t close your app or use the back\nbuttons till it loads ',
+                                                textAlign: TextAlign.center,
+                                                style: GoogleFonts.poppins(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 12,
+                                                  color: AppColors.white,
+                                                ),
+                                              ),
+                                              const SizedBox(height: 20),
+                                              CircularProgressIndicator(
+                                                color: AppColors.jungleGreen,
+                                              ),
+                                            ],
+                                          )
+                                          : ListView.builder(
+                                            shrinkWrap: true,
+                                            physics: const ScrollPhysics(),
+                                            itemCount: 5,
+                                            itemBuilder: (context, index) {
+                                              return pastorderwidget(
+                                                title: "Location",
+                                                subtitle: "Free cancellation",
+                                                date: "24/08/2025",
+                                                price: "3200",
+                                              );
+                                            },
+                                          )
+                                      : Consumer<UpcomingmodelviewProvider>(
+                                        builder: (context, sessionProvider, _) {
+                                          return ListView.builder(
+                                            shrinkWrap: true,
+                      
+                                            itemCount:
+                                                sessionProvider.sessions.length,
+                                            itemBuilder: (context, index) {
+                                              final session =
+                                                  sessionProvider.sessions[index];
+                                              return UpcomingCard(
+                                                ontap: () {
+                                                  Navigator.pushNamed(
+                                                    context,
+                                                    RoutesName.viewsessioniscreen,
+                                                  );
+                                                },
+                                                imagePath: session.imagePath,
+                                                locationName:
+                                                    session.locationName,
+                                                address: session.address,
+                                                price: session.price,
+                                                rating: session.rating,
+                                                reviewCount: session.reviewCount,
+                                              );
+                                            },
+                                          );
+                                        },
+                                      ),
                             ),
                           ),
-                          centerTitle: true,
-                        ),
-                        AdvancedSegment(
-                          backgroundColor: AppColors.segmentcolor,
-                          sliderColor: AppColors.backgroundcolor,
-                          itemPadding: const EdgeInsets.symmetric(
-                            horizontal: 35,
-                            vertical: 10,
-                          ),
-                          activeStyle: GoogleFonts.poppins(
-                            color: AppColors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          inactiveStyle: GoogleFonts.poppins(
-                            color: AppColors.blackcolor,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          // animationDuration: const Duration(seconds: 2),
-                          segments: {
-                            'Past Orders': 'Past Orders',
-                            'Upcoming': 'Upcoming',
-                          },
-                          controller: _selectedSegment,
-                        ),
-                        Expanded(
-                          child: Center(
-                            child:
-                                segment == 'Past Orders'
-                                    ? isLoading
-                                        ? Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'We\'re loading your bookings...',
-                                              style: GoogleFonts.poppins(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 18,
-                                                color: AppColors.white,
-                                              ),
-                                            ),
-                                            Text(
-                                              'please don\'t close your app or use the back\nbuttons till it loads ',
-                                              textAlign: TextAlign.center,
-                                              style: GoogleFonts.poppins(
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 12,
-                                                color: AppColors.white,
-                                              ),
-                                            ),
-                                            const SizedBox(height: 20),
-                                            CircularProgressIndicator(
-                                              color: AppColors.jungleGreen,
-                                            ),
-                                          ],
-                                        )
-                                        : ListView.builder(
-                                          shrinkWrap: true,
-                                          physics: const ScrollPhysics(),
-                                          itemCount: 5,
-                                          itemBuilder: (context, index) {
-                                            return pastorderwidget(
-                                              title: "Location",
-                                              subtitle: "Free cancellation",
-                                              date: "24/08/2025",
-                                              price: "3200",
-                                            );
-                                          },
-                                        )
-                                    : Consumer<UpcomingmodelviewProvider>(
-                                      builder: (context, sessionProvider, _) {
-                                        return ListView.builder(
-                                          shrinkWrap: true,
-
-                                          itemCount:
-                                              sessionProvider.sessions.length,
-                                          itemBuilder: (context, index) {
-                                            final session =
-                                                sessionProvider.sessions[index];
-                                            return UpcomingCard(
-                                              ontap: () {
-                                                Navigator.pushNamed(
-                                                  context,
-                                                  RoutesName.viewsessioniscreen,
-                                                );
-                                              },
-                                              imagePath: session.imagePath,
-                                              locationName:
-                                                  session.locationName,
-                                              address: session.address,
-                                              price: session.price,
-                                              rating: session.rating,
-                                              reviewCount: session.reviewCount,
-                                            );
-                                          },
-                                        );
-                                      },
-                                    ),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),

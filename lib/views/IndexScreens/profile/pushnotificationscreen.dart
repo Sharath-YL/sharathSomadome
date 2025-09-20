@@ -165,11 +165,16 @@ class _PushnotificationscreenState extends State<Pushnotificationscreen> {
           SizedBox(width: 10.w),
           GestureDetector(
             onTap: () => onChanged(!value),
-            child: Icon(
-              value ? Icons.check_circle : Icons.cancel,
-              color: value ? Colors.cyanAccent : Colors.grey.shade400,
-              size: 24.sp,
+            child: Switch(
+              activeColor: AppColors.forgetpasswordcolor,
+              value: value,
+              onChanged: onChanged,
             ),
+            // child: Icon(
+            //   value ? Icons.check_circle : Icons.cancel,
+            //   color: value ? Colors.cyanAccent : Colors.grey.shade400,
+            //   size: 24.sp,
+            // ),
           ),
         ],
       ),

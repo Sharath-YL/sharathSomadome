@@ -44,24 +44,29 @@ class _PaymentcompletescreenState extends State<Paymentcompletescreen> {
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
           physics: const ScrollPhysics(),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              buildStepper(),
-              const SizedBox(height: 10),
-              PaymentSuccessWidget(),
-              const SizedBox(height: 10),
-              ResumeButton(
-                buttonText: "Go back to Bookings",
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Seebookingscreen()),
-                  );
-                },
-              ),
-            ],
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                buildStepper(),
+                const SizedBox(height: 10),
+                PaymentSuccessWidget(),
+                const SizedBox(height: 30),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: ResumeButton(
+                    buttonText: "Go back to Bookings",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Seebookingscreen()),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -97,20 +102,29 @@ class _PaymentcompletescreenState extends State<Paymentcompletescreen> {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        CircleAvatar(
-          radius: 12,
-          backgroundColor:
-              useWhiteBg
-                  ? Colors.white
-                  : isActive
-                  ? Colors.cyanAccent
-                  : Colors.cyanAccent.withOpacity(0.3),
-          child: Text(
-            step,
-            style: GoogleFonts.poppins(
-              fontSize: 12,
-              color: useWhiteBg ? AppColors.backgroundcolor : Colors.white,
-              fontWeight: FontWeight.bold,
+             Container(
+          width: 24, 
+          height: 24,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: isActive ? Colors.transparent : Colors.grey.withOpacity(0.6), 
+              width: 1.0,
+            ),
+            color: useWhiteBg
+                ? Colors.white
+                : isActive
+                ? Colors.transparent
+                : Colors.transparent, 
+          ),
+          child: Center(
+            child: Text(
+              step,
+              style: GoogleFonts.urbanist(
+                fontSize: 12,
+                color: useWhiteBg ? AppColors.forgetpasswordcolor : AppColors.forgetpasswordcolor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),

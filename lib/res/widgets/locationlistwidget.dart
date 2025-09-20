@@ -49,6 +49,7 @@ class LocationListWidget extends StatelessWidget {
                         location: loc['location'] ?? '',
                         rating: loc['rating'] ?? '',
                         price: loc['price'] ?? '',
+                        time: loc['time']??"",
                       ),
               ),
             ),
@@ -86,7 +87,8 @@ class LocationListWidget extends StatelessWidget {
                     zip: loc['zip'] ?? '',
                     location: loc['location'] ?? '',
                     rating: loc['rating'] ?? '',
-                    price: loc['price'] ?? '',
+                    price: loc['price'] ?? '', 
+                    time: loc['time']??''
                   ),
           );
         },

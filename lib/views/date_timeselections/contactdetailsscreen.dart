@@ -58,7 +58,7 @@ class _ContactdetailsscreenState extends State<Contactdetailsscreen> {
                 centerTitle: true,
                 title: Text(
                   "Contact Details",
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.urbanist(
                     color: AppColors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
@@ -84,12 +84,13 @@ class _ContactdetailsscreenState extends State<Contactdetailsscreen> {
                     // Full Name
                     Text(
                       "Full name",
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.urbanist(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
+                        fontSize: 16,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 15),
                     AuthTextField(
                       focusNode: namefocusnode,
 
@@ -102,12 +103,13 @@ class _ContactdetailsscreenState extends State<Contactdetailsscreen> {
                     // Phone Number
                     Text(
                       "Phone number",
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.urbanist(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
+                        fontSize: 16,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 15),
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 12,
@@ -154,7 +156,7 @@ class _ContactdetailsscreenState extends State<Contactdetailsscreen> {
                             child: TextFormField(
                               focusNode: _phoneFocusNode,
                               controller: phonecontroller,
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.urbanist(
                                 color: Colors.white,
                                 fontSize: 16,
                               ),
@@ -167,8 +169,10 @@ class _ContactdetailsscreenState extends State<Contactdetailsscreen> {
                                 isDense: true,
                                 border: InputBorder.none,
                                 hintText: 'phone number',
-                                hintStyle: GoogleFonts.poppins(
-                                  color: Colors.white.withOpacity(1),
+
+                                hintStyle: GoogleFonts.urbanist(
+                                  fontSize: 17,
+                                  color: Colors.white.withOpacity(0.7),
                                 ),
                               ),
                               onTap: () => setState(() {}),
@@ -182,12 +186,13 @@ class _ContactdetailsscreenState extends State<Contactdetailsscreen> {
 
                     Text(
                       "Email",
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.urbanist(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
+                        fontSize: 16,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 15),
                     AuthTextField(
                       focusNode: emailfocusnode,
 
