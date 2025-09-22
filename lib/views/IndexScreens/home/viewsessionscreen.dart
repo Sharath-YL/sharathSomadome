@@ -198,7 +198,7 @@ class _ViewsessionscreenState extends State<Viewsessionscreen> {
                               ),
                               child: Text(
                                 "Start Session",
-                                style: GoogleFonts.urbanist(
+                                style: GoogleFonts.poppins(
                                   color: AppColors.white,
                                   fontSize: 15.sp,
                                   fontWeight: FontWeight.w500,

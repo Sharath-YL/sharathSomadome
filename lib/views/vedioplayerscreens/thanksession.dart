@@ -30,7 +30,7 @@ class _ThanksessionState extends State<Thanksession> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      backgroundColor: Color.fromRGBO(70, 62, 153, 1),
+      backgroundColor: Color.fromRGBO(50, 60, 120, 1),
       builder: (context) {
             List<bool> isSelectedRow1 = [false, false, false];
             List<bool> isSelectedRow2 = [false, false, false];

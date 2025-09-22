@@ -42,7 +42,7 @@ class _RootBottomNavState extends State<RootBottomNav> {
         currentIndex: navVM.currentIndex,
         onTap: navVM.changeTab,
         selectedItemColor: AppColors.white,
-        unselectedItemColor: Color.fromRGBO(246, 15, 255, 1),
+        unselectedItemColor: Color.fromRGBO(246, 15, 255, 1).withOpacity(0.8),
         showUnselectedLabels: true,
         items: [
           BottomNavigationBarItem(
@@ -51,7 +51,7 @@ class _RootBottomNavState extends State<RootBottomNav> {
               color:
                   navVM.currentIndex == 0
                       ? AppColors.white
-                      : Color.fromRGBO(246, 15, 255, 1),
+                      : Color.fromRGBO(246, 15, 255, 1).withOpacity(0.7),
             ),
             label: 'Home',
           ),
@@ -61,7 +61,7 @@ class _RootBottomNavState extends State<RootBottomNav> {
               color:
                   navVM.currentIndex == 1
                       ? AppColors.white
-                      : Color.fromRGBO(246, 15, 255, 1),
+                      : Color.fromRGBO(246, 15, 255, 1).withOpacity(0.7),
             ),
             label: 'Community',
           ),
@@ -71,7 +71,7 @@ class _RootBottomNavState extends State<RootBottomNav> {
               color:
                   navVM.currentIndex == 2
                       ? AppColors.white
-                      : Color.fromRGBO(246, 15, 255, 1),
+                      : Color.fromRGBO(246, 15, 255, 1).withOpacity(0.7),
             ),
             label: 'Book',
           ),
@@ -81,7 +81,7 @@ class _RootBottomNavState extends State<RootBottomNav> {
               color:
                   navVM.currentIndex == 3
                       ? AppColors.white
-                      : Color.fromRGBO(246, 15, 255, 1),
+                      : Color.fromRGBO(246, 15, 255, 1).withOpacity(0.7),
             ),
             label: 'Learn',
           ),
@@ -91,7 +91,7 @@ class _RootBottomNavState extends State<RootBottomNav> {
               color:
                   navVM.currentIndex == 4
                       ? AppColors.white
-                      : Color.fromRGBO(246, 15, 255, 1),
+                      : Color.fromRGBO(246, 15, 255, 1).withOpacity(0.7),
             ),
             label: 'Profile',
           ),

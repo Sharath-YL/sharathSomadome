@@ -50,7 +50,7 @@ class _PaymentcompletescreenState extends State<Paymentcompletescreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 buildStepper(),
-                const SizedBox(height: 10),
+                const SizedBox(height: 40),
                 PaymentSuccessWidget(),
                 const SizedBox(height: 30),
                 Padding(
@@ -185,7 +185,7 @@ class PaymentSuccessWidget extends StatelessWidget {
                 const SizedBox(height: 40),
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  padding: const EdgeInsets.symmetric(horizontal: 60),
                   child: Text(
                     'Payment Completed',
                     style: GoogleFonts.urbanist(
@@ -198,7 +198,7 @@ class PaymentSuccessWidget extends StatelessWidget {
 
                 const SizedBox(height: 8.0),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  padding: const EdgeInsets.symmetric(horizontal: 60),
                   child: Text(
                     'Booking ID #01298765',
                     style: GoogleFonts.urbanist(
